@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 我们只想人ul的亲儿子被绿 */
+        .nav>li {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>我是ul的亲儿子</li>
+        <ul>
+            <li>我是ul的孙子</li>
+        </ul>
+    </ul>
+</body>
+
+</html>

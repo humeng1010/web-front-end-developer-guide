@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 没有点击过的链接(没有访问) */
+        a:link {
+            color: #333;
+            text-decoration: none;
+        }
+
+        /* 访问过的 */
+        a:visited {
+            color: orange;
+        }
+
+        /* 鼠标经过 */
+        a:hover {
+            color: skyblue;
+        }
+
+        /* 鼠标正在点击 */
+        a:active {
+            color: red;
+        }
+
+        input:focus {
+            outline: none;
+            border: 1px solid #000;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#">小猪佩奇</a>
+    <input type="text" name="name">
+</body>
+
+</html>
