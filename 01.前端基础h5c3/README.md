@@ -8,5 +8,5 @@
 
 推荐观看黑马pink老师的视频，地址：https://www.bilibili.com/video/BV14J4114768
 
-该文件夹中的代码案例均来自于视频，感谢pink老师 Thanks♪(･ω･)ﾉ YYDS
+该文件夹中的代码案例均来自于视频，感谢pink老师Thanks♪(･ω･)ﾉ YYDS
 
