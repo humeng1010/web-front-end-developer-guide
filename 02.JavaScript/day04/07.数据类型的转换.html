@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num = 1
+        console.log(typeof (num.toString()));
+        console.log(typeof (String(num)));
+        console.log(typeof (num + ''));
+
+        var str1 = "12ww"
+        console.log(parseInt(str1));//12
+        console.log(typeof (parseInt(str1)));
+
+        console.log(Number(str1));//NaN
+
+        var str2 = "12.2ww"
+        console.log(parseFloat(str2));//12.2
+        console.log(typeof (parseFloat(str2)));
+
+        console.log(Number(str2));//NaN
+        console.log('==============');
+
+        console.log(Boolean(''));
+        console.log(Boolean(0));
+        console.log(Boolean(null));
+        console.log(Boolean(undefined));
+        console.log(Boolean(NaN));
+        console.log('==============');
+        console.log(Boolean('小白'));
+        console.log(Boolean(11));
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
