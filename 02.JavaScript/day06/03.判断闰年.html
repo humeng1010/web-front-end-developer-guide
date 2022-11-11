@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var year = prompt("请输入年份")
+        // year = parseInt(year)
+        // 隐式转换 (进行运算只要不是加法就会隐式转换)
+        if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+            alert("是闰年")
+        } else {
+            alert("不是闰年")
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
