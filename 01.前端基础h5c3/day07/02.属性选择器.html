@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type=text] {
+            color: pink;
+        }
+
+        input[type=button],
+        input[type=submit] {
+            cursor: pointer;
+        }
+
+        /* 选择div的类名是icon开头的盒子 */
+        div[class^=icon] {
+            color: pink;
+        }
+
+        /* 选择section的类名是data结尾的元素 */
+        section[class$=data] {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#">
+        <input type="text" name="" id="">
+        <input type="password" name="" id="">
+        <input type="button" value="ok">
+        <input type="submit" name="" id="" value="提交">
+    </form>
+
+    <br>
+
+    <!-- 属性选择器可以选择属性值开头的某些元素 -->
+    <div class="icon1">小图标1</div>
+    <div class="icon2">小图标2</div>
+    <div class="icon3">小图标3</div>
+    <div class="icon4">小图标4</div>
+    <div>我是打酱油的</div>
+
+    <!-- 属性选择器可以选择属性值结尾的某些元素 -->
+    <section class="icon1-data">我是安琪拉</section>
+    <section class="icon2-data">我是哥斯拉</section>
+    <section class="icon3-ico">那我是谁</section>
+</body>
+
+</html>

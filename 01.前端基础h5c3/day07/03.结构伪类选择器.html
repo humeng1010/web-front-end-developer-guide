@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 1.选择ul下的第一个孩子 */
+        ul li:first-child {
+            background-color: pink;
+        }
+
+        /* 2.选择ul下的最后一个孩子 */
+        ul li:last-child {
+            background-color: pink;
+        }
+
+        /* 3.选择第5个孩子 */
+        ul li:nth-child(5) {
+            background-color: pink;
+        }
+
+        /* 偶数行 */
+        /* ul li:nth-child(2n) {
+            background-color: skyblue;
+        } */
+
+        /* 奇数列 */
+        ul li:nth-child(2n-1) {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+</body>
+
+</html>
