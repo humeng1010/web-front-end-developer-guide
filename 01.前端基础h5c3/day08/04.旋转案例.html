@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            overflow: hidden;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #6cf;
+
+        }
+
+        .box::after {
+            display: block;
+            content: "黑马";
+            width: 100%;
+            height: 100%;
+            background-color: hotpink;
+            text-align: center;
+            line-height: 200px;
+
+            transform-origin: left bottom;
+            transform: rotate(90deg);
+
+            transition: all .5s;
+
+        }
+
+        .box:hover::after {
+            transform: rotate(0deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    111
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes round {
+            0% {
+                transform: rotateX(-20deg) rotateY(0);
+            }
+
+            100% {
+                transform: rotateX(-20deg) rotateY(360deg);
+            }
+
+        }
+
+        body {
+            perspective: 1000px;
+        }
+
+        section {
+            /* 旋转 */
+            animation: round 10s linear infinite forwards;
+            transform-style: preserve-3d;
+
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: 150px auto;
+        }
+
+        section:hover {
+            animation-play-state: paused;
+        }
+
+        section div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(img/dog.jpg) no-repeat;
+        }
+
+        section div:nth-child(1) {
+            transform: rotateY(0) translateZ(300px);
+        }
+
+        section div:nth-child(2) {
+            /* 先旋转(坐标轴也会跟着旋转) 然后再向z轴移动300px */
+            transform: rotateY(60deg) translateZ(300px);
+        }
+
+        section div:nth-child(3) {
+            transform: rotateY(120deg) translateZ(300px);
+        }
+
+        section div:nth-child(4) {
+            transform: rotateY(180deg) translateZ(300px);
+        }
+
+        section div:nth-child(5) {
+            transform: rotateY(240deg) translateZ(300px);
+        }
+
+        section div:nth-child(6) {
+            transform: rotateY(300deg) translateZ(300px);
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+
+</body>
+
+</html>
