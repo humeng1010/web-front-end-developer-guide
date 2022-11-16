@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* 给父级添加flex属性 */
+            display: flex;
+            /* 默认的主轴是x轴 那么y就是侧轴了 */
+            /* flex-direction: row; */
+            /* x主轴并反转，简单了解 */
+            /* flex-direction: row-reverse; */
+            /* 主轴设置为y轴 那么x就是侧轴了 */
+            flex-direction: column;
+            /* 所以主轴就是看我们设置的是x还是y */
+
+            width: 800px;
+            height: 300px;
+            background-color: pink;
+        }
+
+        div span {
+            width: 150px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div><span>1</span><span>2</span><span>3</span></div>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            width: 80%;
+            height: 300px;
+            margin: 0 auto;
+            background-color: skyblue;
+        }
+
+        div span {
+            /* flex: 1; */
+            width: 150px;
+            height: 100px;
+            margin: 0 10px;
+            background-color: pink;
+        }
+
+        div span:nth-child(1) {
+            align-self: flex-start;
+        }
+
+        /* 让第二个盒子到侧轴的居中对齐 */
+        div span:nth-child(2) {
+            align-self: center;
+            /* 控制排列顺序 越小越靠前 默认0 */
+            order: -1;
+        }
+
+        /* 让第三个盒子到侧轴的尾部对齐 */
+        div span:nth-child(3) {
+            align-self: flex-end;
+        }
+
+        div span:nth-child(4) {
+            align-self: flex-end;
+        }
+
+        div span:nth-child(5) {
+            align-self: center;
+        }
+
+        div span:nth-child(6) {
+            align-self: flex-start;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>1</span><span>2</span><span>3</span>
+        <span>4</span><span>5</span><span>6</span>
+    </div>
+
+</body>
+
+</html>
