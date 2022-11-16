@@ -252,6 +252,42 @@ nav {
     background-size: 28px auto;
 }
 
+.subnav-entry li:nth-child(2) .subnav-entry-icon {
+    background-position: 0 -29px;
+}
+
+.subnav-entry li:nth-child(3) .subnav-entry-icon {
+    background-position: 0 -64px;
+}
+
+.subnav-entry li:nth-child(4) .subnav-entry-icon {
+    background-position: 0 -99px;
+}
+
+.subnav-entry li:nth-child(5) .subnav-entry-icon {
+    background-position: 0 -131px;
+}
+
+.subnav-entry li:nth-child(6) .subnav-entry-icon {
+    background-position: 5px -162px;
+}
+
+.subnav-entry li:nth-child(7) .subnav-entry-icon {
+    background-position: 0 -197px;
+}
+
+.subnav-entry li:nth-child(8) .subnav-entry-icon {
+    background-position: 0 -228px;
+}
+
+.subnav-entry li:nth-child(9) .subnav-entry-icon {
+    background-position: 0 -258px;
+}
+
+.subnav-entry li:nth-child(10) .subnav-entry-icon {
+    background-position: 0 -286px;
+}
+
 /* 销售模块 */
 .sales-box {
     background-color: #fff;
