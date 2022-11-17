@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 屏幕尺寸320以上的 移动端 (屏幕最小的也大概就是320px) */
+        @media screen and (min-width: 320px) {
+            html {
+                font-size: 50px;
+            }
+        }
+
+        /* 利用层叠性，在分一个 web端的 屏幕大小大于640的 */
+        @media screen and (min-width: 640px) {
+            html {
+                font-size: 100px;
+            }
+        }
+
+        .top {
+            height: 1rem;
+            /* 文字大小是html字体大小的一半 */
+            font-size: .5rem;
+            background-color: green;
+            color: #fff;
+            text-align: center;
+            line-height: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">顶部导航栏</div>
+
+</body>
+
+</html>

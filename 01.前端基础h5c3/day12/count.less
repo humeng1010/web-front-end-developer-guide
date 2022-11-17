@@ -1,0 +1,17 @@
+@border: 5px + 5;
+@baseFont: 50px;
+
+div {
+    // 减法运算
+    width: 200px - 50;
+    // 乘法运算
+    height: 200px * 2;
+    border: @border solid red;
+    font-size: @baseFont;
+}
+
+img {
+    // 除法运算需要加上小括号
+    width: (82rem / @baseFont);
+    height: (82rem / @baseFont);
+}
