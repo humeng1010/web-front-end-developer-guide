@@ -1,7 +1,7 @@
 body {
     min-width: 4.2667rem;
     max-width: 10rem;
-    /* flexible给我们划分了10等份 所以宽度充满全屏就是500.0025px */
+    /* flexible给我们划分了10等份 所以宽度充满全屏就是10rem */
     width: 10rem;
     margin: 0 auto;
     line-height: 1.5;
