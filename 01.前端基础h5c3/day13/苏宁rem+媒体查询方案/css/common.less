@@ -1,0 +1,97 @@
+a {
+    text-decoration: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+input {
+    outline: none;
+}
+
+// pc端的html字体大小(一定要写在最上面) 兜底使用的
+html {
+    font-size: 50px;
+}
+
+// 定义划分的屏幕分数为 15 份
+@number: 15;
+
+// 设置常见的屏幕尺寸，修改html里面的文字大小
+// 大于等于320
+@media screen and (min-width:320px) {
+    html {
+        font-size: (320px / @number);
+    }
+}
+
+// 大于等于360
+@media screen and(min-width:360px) {
+    html {
+        font-size: (360px / @number);
+    }
+}
+
+// 大于等于375 iphone 6 7 8
+@media screen and (min-width:375px) {
+    html {
+        font-size: (375px / @number);
+    }
+}
+
+// 大于等于384
+@media screen and (min-width:384px) {
+    html {
+        font-size: (384px / @number);
+    }
+}
+
+// 大于等于400
+@media screen and (min-width:400px) {
+    html {
+        font-size: (400px / @number);
+    }
+}
+
+// 大于等于414
+@media screen and (min-width:414px) {
+    html {
+        font-size: (414px / @number);
+    }
+}
+
+// 大于等于424
+@media screen and (min-width:424px) {
+    html {
+        font-size: (424px / @number);
+    }
+}
+
+// 大于等于480
+@media screen and (min-width:480px) {
+    html {
+        font-size: (480px / @number);
+    }
+}
+
+// 大于等于540
+@media screen and (min-width:540px) {
+    html {
+        font-size: (540px / @number);
+    }
+}
+
+// 大于等于720
+@media screen and (min-width:720px) {
+    html {
+        font-size: (720px / @number);
+    }
+}
+
+// 大于等于750
+@media screen and (min-width:750px) {
+    html {
+        font-size: (750px / @number);
+    }
+}

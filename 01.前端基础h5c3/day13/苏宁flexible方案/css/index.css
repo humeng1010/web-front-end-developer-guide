@@ -1,0 +1,70 @@
+body {
+    min-width: 4.2667rem;
+    max-width: 10rem;
+    /* flexible给我们划分了10等份 所以宽度充满全屏就是500.0025px */
+    width: 10rem;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f2f2;
+}
+
+a {
+    text-decoration: none;
+    font-size: .3333rem;
+}
+
+/* 如果我们的屏幕超过750px 那么就按照750设计稿来走  不会让页面超过750px */
+@media screen and (min-width:750px) {
+    html {
+        /* 划分的是10等份 所以屏幕大于等于750px时候html字体大小是 75px 注意flexible.js的字体大小的权重问题 */
+        font-size: 75px !important;
+    }
+
+}
+
+.search-content {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    max-width: 10rem;
+    transform: translateX(-50%);
+    width: 10rem;
+    height: 1.1733rem;
+    background-color: #ffc001;
+}
+
+.classify {
+    width: .5867rem;
+    height: .9333rem;
+    margin: .1467rem .3333rem .1333rem;
+    background: url(../images/classify.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.search {
+    flex: 1;
+}
+
+.login {
+    width: 1rem;
+    height: .9333rem;
+    margin: .1333rem;
+    color: #fff;
+    text-align: center;
+    line-height: .9333rem;
+    font-size: .3333rem;
+}
+
+.search input {
+    outline: none;
+    border: 0;
+    width: 100%;
+    height: .88rem;
+    font-size: .3333rem;
+    border-radius: .44rem;
+    background-color: #fff2cc;
+    margin-top: .1333rem;
+    padding-left: .7333rem;
+}
