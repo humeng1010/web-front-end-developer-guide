@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./BootStrap/css/bootstrap.min.css">
+    <style>
+        [class^="col"] {
+            border: 1px solid #ccc;
+        }
+
+        .container .row:nth-child(1) {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">1</div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">2</div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">3</div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">4</div>
+        </div>
+        <!-- 如果孩子的份数相加等于12 则孩子能占满整个 container的宽度 -->
+        <div class="row">
+            <div class="col-lg-6">1</div>
+            <div class="col-lg-2">2</div>
+            <div class="col-lg-2">3</div>
+            <div class="col-lg-2">4</div>
+        </div>
+        <!-- 如果孩子的份数相加小于12 则占不满整个container的宽度 会有空白 -->
+        <div class="row">
+            <div class="col-lg-6">1</div>
+            <div class="col-lg-2">2</div>
+            <div class="col-lg-2">3</div>
+            <div class="col-lg-1">4</div>
+        </div>
+        <!-- 如果孩子份数相加大于12 则多出来的那一列会 另起一行显示 -->
+        <div class="row">
+            <div class="col-lg-6">1</div>
+            <div class="col-lg-2">2</div>
+            <div class="col-lg-2">3</div>
+            <div class="col-lg-3">4</div>
+        </div>
+    </div>
+
+</body>
+
+</html>

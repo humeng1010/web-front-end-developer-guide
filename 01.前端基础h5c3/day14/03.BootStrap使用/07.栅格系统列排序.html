@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./BootStrap/css/bootstrap.min.css">
+    <style>
+        .container>.row>div:nth-child(1) {
+            background-color: pink;
+        }
+
+        .container>.row>div:nth-child(2) {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- 向左是拉 向右是推  => 左拉右推 想象我们在最左侧 如果想让盒子向右边去 我们需要推 -->
+            <div class="col-md-9 col-md-push-3">左侧盒子占9份 但是被推了3份 就到右侧了</div>
+            <div class="col-md-3 col-md-pull-9">右侧盒子占3份 但是被拉了9份 就到左侧了</div>
+        </div>
+    </div>
+
+</body>
+
+</html>
