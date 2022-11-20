@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getSum(num1, num2) {
+            console.log(num1 + "+" + num2 + "=");
+            console.log(num1 + num2);
+        }
+        // 形参和实参个数一致 则正常输出
+        getSum(1, 1);// 2
+        // 如果实参多了 则还是取形参的个数这么多的实参
+        getSum(1, 2, 3)// 1+2=3
+        // 实参少了 则没有实参的那个形参就是undefined 则1+undefined=NaN
+        getSum(1)// 1+undefined=NaN
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

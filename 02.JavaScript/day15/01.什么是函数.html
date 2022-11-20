@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 求1-100累加和
+        var sum = 0;
+        for (var i = 1; i <= 100; i++) {
+            sum += i;
+        }
+        console.log(sum);
+
+        // 求1-50累加和
+        var sum1 = 0;
+        for (var i = 1; i <= 50; i++) {
+            sum1 += i;
+        }
+        console.log(sum1);
+
+        // 函数
+        function getSum(startNum, endNum) {
+            var sum = 0;
+            for (var i = startNum; i <= endNum; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+        var sum = getSum(1, 100);
+        console.log(sum);
+
+        console.log(getSum(1, 50));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
