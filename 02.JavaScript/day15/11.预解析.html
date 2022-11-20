@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(a);
+        function f1() {
+            var a = b = c = 9;
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+        console.log('=======');
+        // 以上代码的执行结果
+        // 分析 以上代码相当于下面的代码
+        function f1() {
+            var a = 9;
+            b = 9;//注意特殊情况 在函数内部没有定义直接赋值的变量会是全局变量
+            c = 9;
+            console.log(a);//9
+            console.log(b);//9
+            console.log(c);//9
+        }
+        f1();
+        console.log(c);//9
+        console.log(b);//9
+        console.log(a);//报错 a is not defined
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

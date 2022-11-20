@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var obj = {
+            name: '张三',
+            age: 20,
+            gender: '男',
+            fn: function () {
+                console.log('object');
+            }
+        }
+        console.log(obj.name);
+        console.log(obj.age);
+        console.log(obj.gender);
+        // for in 遍历对象
+        // for(变量 in 对象)
+        for (var k in obj) {
+            console.log(k + '->' + obj[k]);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

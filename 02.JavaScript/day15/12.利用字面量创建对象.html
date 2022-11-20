@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var obj = {
+            uname: '张三',
+            age: 18,
+            gender: '男',
+            // sayHi() { //es6新语法
+            sayHi: function () {
+                console.log('hi~');
+            }
+        }
+        // 1、定义对象
+        // 1.里面的属性或者方法我们采取键值对的形式 键 属性名 : 值 属性值
+        // 2.多个属性或方法中间使用逗号隔开
+        // 3.方法冒号后面跟的是一个匿名函数
+
+        // 2、使用对象
+        // 1.调用对象的属性 我们采取 对象名.属性名
+        console.log(obj.uname);
+        // 2.调用属性还有另外一种写法 对象名['属性名']
+        console.log(obj['age']);
+        // 3.调用对象的方法 sayHi 对象名.方法名() 千万别忘记加小括号
+        obj.sayHi();
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

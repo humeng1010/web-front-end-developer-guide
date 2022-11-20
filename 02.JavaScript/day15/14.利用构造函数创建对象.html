@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Star(uname, age, gender) {
+            this.name = uname;
+            this.age = age;
+            this.gender = gender;
+            this.show = function () {
+                console.log(`${this.name}今年${this.age}岁，性别${this.gender}`);
+            }
+        }
+
+        var zs = new Star('张三', 18, '男');
+        zs.show();
+
+        var ls = new Star('李四', 19, '男');
+        ls.show();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 作用域的作用 提高代码的可靠性 减少命名冲突
+        // 全局作用域
+        var num = 10;
+        var num = 20;
+        console.log(num);//20
+
+        // 局部作用域 (函数作用域)
+        function fn() {
+            var num = 30;
+            console.log(num);//30
+        }
+        fn()
+        console.log(num);//20
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
