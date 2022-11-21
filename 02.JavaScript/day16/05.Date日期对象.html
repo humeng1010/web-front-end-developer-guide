@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var date = new Date();
+        console.log(date);
+
+        // 带参数的
+        var date1 = new Date(2022, 11, 21);//输出的是12月 因为月是从0开始的
+        console.log(date1);
+
+        var date2 = new Date('2022-11-21 11:11:11')
+        console.log(date2);
+        date2.toLocaleTimeString()
+        console.log(date2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

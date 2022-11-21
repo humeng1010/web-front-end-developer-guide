@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+        var randomNum = getRandom(1, 10);
+
+        console.log(randomNum);
+        var count = 0
+        while (true) {
+            if (count >= 3) {
+                alert('没有机会了')
+                break
+            }
+            var num = prompt('请输入一个数字1-10之间');
+            if (num < randomNum) {
+                alert('小了')
+                count++
+            } else if (num > randomNum) {
+                alert('大了')
+                count++
+            } else if (num == randomNum) {
+                alert('猜中了一共猜了' + (count + 1) + '次')
+                break
+            }
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

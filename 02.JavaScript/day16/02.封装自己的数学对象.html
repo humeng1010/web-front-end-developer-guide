@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var myMath = {
+            PI: Math.PI,
+            max: function () {
+                return Math.max(...arguments);
+            },
+            min: function () {
+                return Math.min(...arguments);
+            }
+        }
+
+        console.log(myMath.PI);
+
+        console.log(myMath.max(2, 1, 5, 7, 3, '99'));//99 存在隐式转换
+
+        console.log(myMath.min(2, 1, 5, 7, 3));//1
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

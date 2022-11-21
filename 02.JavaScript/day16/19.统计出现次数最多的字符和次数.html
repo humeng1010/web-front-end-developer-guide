@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str = 'abcdefgabdebba'
+        var obj = {}
+        for (var i = 0; i < str.length; i++) {
+            if (obj[str.charAt(i)]) {
+                obj[str[i]]++
+            } else {
+                obj[str[i]] = 1
+            }
+        }
+        console.log(obj);
+        // 遍历对象
+        var ch = ''
+        var max = 0;
+        for (var k in obj) {
+            if (obj[k] > max) {
+                max = obj[k]
+                ch = k
+            }
+        }
+        console.log(max);
+        console.log('最多的字符是' + ch);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

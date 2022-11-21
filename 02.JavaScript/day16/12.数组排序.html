@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr = ['start', 2, 3, 'end']
+        arr.reverse()
+        console.log(arr);
+
+        var arr1 = [1, 2, 5, 3, 7, 8, 4, 6, 11, 12]
+        // arr1.sort() //1, 11, 12, 2, 3, 4, 5, 6, 7, 8 我们发现结果不是我们想要的
+        //升序 原理就是里面是一个比较函数 类似于java的排序中的比较器 这种写法是箭头函数 Lambda表达式
+        arr1.sort((a, b) => a - b);
+        console.log(arr1);
+        //降序
+        arr1.push(33)
+        arr1.sort((a, b) => b - a);
+        console.log(arr1);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

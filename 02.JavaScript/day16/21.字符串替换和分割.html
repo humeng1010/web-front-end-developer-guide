@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str1 = 'andy'
+        console.log(str1.replace('a', 'b'));
+        var str2 = 'abababbb'
+        while (str2.includes('a')) {
+            str2 = str2.replace('a', 'b')
+        }
+        console.log(str2);
+        // 分隔符
+        var str3 = 'a,b,c,d'
+        var arr = []
+        arr = str3.split(',')
+        console.log(arr);
+
+        // 大小写转换
+        var str4 = 'abc'
+        console.log(str4.toUpperCase());
+        var str5 = '  ABC   '
+        console.log(str5.toLowerCase());
+
+        // 去除首位空格
+        var str6 = ' ab c   '
+        console.log(str6.trim(str6));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

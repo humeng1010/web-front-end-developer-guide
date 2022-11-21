@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getTime(time) {
+            var afterTime = +new Date(time);
+            var now = Date.now();
+            var time = (afterTime - now) / 1000;//time是剩余的秒数
+            var d = parseInt(time / 60 / 60 / 24)//天数
+            d = d < 10 ? '0' + d : d
+            var h = parseInt(time / 60 / 60 % 24)//小时
+            h = h < 10 ? '0' + h : h
+            var m = parseInt(time / 60 % 60)//分
+            m = m < 10 ? '0' + m : m
+            var s = parseInt(time % 60)//秒
+            s = s < 10 ? '0' + s : s
+            return `${d} day ${h} h ${m} m ${s} s`
+        }
+
+        console.log(getTime('2022-11-21 23:00:00'));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
