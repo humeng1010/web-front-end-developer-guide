@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            position: relative;
+            width: 600px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .inp {
+            width: 400px;
+            height: 50px;
+            border: 0;
+            border-bottom: 1px solid #000;
+            outline: none;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .show {
+            position: absolute;
+            top: 113px;
+            right: 89px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        账户: <input type="text" name="account" id="account" class="inp" autocomplete="off">
+        <br>
+        密码: <input type="password" name="password" id="password" class="inp">
+        <button id="showOrHidden" class="show">show</button>
+        <br>
+        <input type="button" id="login" value="登录">
+    </div>
+
+
+    <script>
+        var password = document.querySelector('#password');
+        var btn = document.querySelector('#showOrHidden');
+        var isShow = true
+        btn.onclick = function () {
+            if (isShow) {
+                password.type = 'text'
+                isShow = false
+                this.innerText = 'hidden'
+            } else {
+                password.type = 'password'
+                isShow = true
+                this.innerText = 'show'
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

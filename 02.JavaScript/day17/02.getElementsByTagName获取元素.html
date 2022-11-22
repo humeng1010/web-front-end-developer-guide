@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>知否1</li>
+        <li>知否2</li>
+        <li>知否3</li>
+        <li>知否4</li>
+        <li>知否5</li>
+    </ul>
+    <ol id="ol">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+    <script>
+        // getElementsByTagName 返回值是伪数组
+        var lis = document.getElementsByTagName('li');
+        console.log(lis);
+        console.log(lis[0]);
+        // 遍历
+        for (let i = 0; i < lis.length; i++) {
+            console.log(lis[i]);
+        }
+
+        // 获取ol下的所有li
+        var ols = document.getElementsByTagName('ol');
+        console.log(ols);
+        var ol_lis = ols[0].getElementsByTagName('li')
+        console.log(ol_lis);
+
+    </script>
+</body>
+
+</html>

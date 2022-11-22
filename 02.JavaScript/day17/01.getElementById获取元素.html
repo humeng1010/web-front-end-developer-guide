@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="time">2022-11-22</div>
+    <script>
+        // 1.因为我们文档从上向下加载 所以先得有标签 所以script标签需要写在标签的下面
+        var time = document.getElementById('time');
+        console.log(time);
+        console.log(typeof time);//object 返回的是一个元素对象
+        console.dir(time);//console.dir 打印我们返回的元素对象 更好的查看里面的属性 和方法
+    </script>
+</body>
+
+</html>

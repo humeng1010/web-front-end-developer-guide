@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div,
+        p {
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button>显示当前时间</button>
+    <div>某个时间</div>
+
+    <p>123</p>
+    <script>
+        // 当我们点击了按钮 div里面的文字会发生变化
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        btn.onclick = function () {
+            div.innerText = getCurrentTime()
+        }
+
+        function getCurrentTime() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            month = month < 10 ? '0' + month : month;
+            var day = date.getDate();
+            day = day < 10 ? '0' + day : day;
+            var hours = date.getHours();
+            hours = hours < 10 ? '0' + hours : hours;
+            var min = date.getMinutes();
+            min = min < 10 ? '0' + min : min;
+            var s = date.getSeconds();
+            s = s < 10 ? '0' + s : s;
+            return `${year}年${month}月${day}日 ${hours}:${min}:${s}`
+        }
+
+        var p = document.querySelector('p');
+        p.innerText = getCurrentTime()
+    </script>
+
+</body>
+
+</html>

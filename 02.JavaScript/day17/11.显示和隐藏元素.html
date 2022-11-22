@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        .er {
+            width: 100%;
+            height: 100%;
+            background-color: skyblue;
+        }
+
+        .close_er {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="close_er"></div>
+        <div class="er"></div>
+    </div>
+    111
+
+    <script>
+        var container = document.querySelector('.container')
+        var closeEr = document.querySelector('.close_er')
+        var er = document.querySelector('.er')
+        closeEr.onclick = function () {
+            er.style.display = 'none'
+            this.style.display = 'none'
+            container.style.display = 'none'
+        }
+    </script>
+
+</body>
+
+</html>

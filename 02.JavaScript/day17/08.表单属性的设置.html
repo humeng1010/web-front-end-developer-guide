@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <input type="text" value="请输入内容">
+
+    <script>
+        var btn = document.querySelector('button');
+        var inp = document.querySelector('input');
+        btn.onclick = function () {
+            inp.value = '按钮被点击了'
+            this.disabled = true
+            // this 指向的是函数的调用者 btn
+            console.log(this);//button按钮对象
+        }
+
+
+    </script>
+
+</body>
+
+</html>

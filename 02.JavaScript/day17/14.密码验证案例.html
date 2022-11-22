@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ok {
+            display: none;
+            color: green;
+        }
+
+        .err {
+            display: none;
+            color: red;
+        }
+
+        .login {
+            width: 60px;
+            height: 28px;
+            background-color: #6cf;
+            cursor: pointer;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 28px;
+            margin-top: 10px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input class="inp_pwd" type="password" name="password" id="password"><span>密码长度6-18位</span>
+        <div class="ok">密码格式正确</div>
+        <div class="err">密码格式错误</div>
+        <div class="login">登录</div>
+    </div>
+
+    <script>
+        var pwd = document.querySelector('.inp_pwd')
+        var ok = document.querySelector('.ok')
+        var err = document.querySelector('.err')
+        pwd.onblur = function () {
+            if (this.value.length < 6 || this.value.length > 18) {
+                err.style.display = 'block'
+                ok.style.display = 'none'
+            } else {
+                ok.style.display = 'block'
+                err.style.display = 'none'
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

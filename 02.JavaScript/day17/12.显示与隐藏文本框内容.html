@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .search {
+            display: flex;
+            width: 400px;
+            height: 40px;
+            margin: 100px auto;
+        }
+
+        .inp {
+            flex: 8;
+            border: 1px solid #6cf;
+            outline: none;
+            padding: 10px;
+        }
+
+        .inp_search {
+            color: #666;
+        }
+
+        .search>button {
+            flex: 2;
+            background-color: #6cf;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        <input type="text" autocomplete="off" name="search" id="search_inp" class="inp inp_search" value="iPhone">
+        <button>搜索</button>
+    </div>
+
+    <script>
+        var search = document.querySelector('#search_inp');
+        var defaultValue = search.value;
+        search.onfocus = function () {
+            if (this.value === defaultValue) {
+                this.value = '';
+            }
+            this.style.color = '#1cf'
+        }
+        search.onblur = function () {
+            if (!this.value) {
+                this.value = defaultValue;
+                this.style.color = '#666'
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

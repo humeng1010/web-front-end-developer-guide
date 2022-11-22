@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .change {
+            margin-top: 200px;
+            background-color: skyblue;
+            color: #fff;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="first">123</div>
+
+    <script>
+        var div = document.querySelector('div')
+        div.onclick = function () {
+            // 把类名替换为change进行修改元素 会覆盖掉之前的类名
+            // this.className = 'change'
+            // 可以这样写 多类名
+            // this.className = 'first change'
+            // 或者这样
+            // this.className += ' change'
+            this.classList.add('change')
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        em {
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <p></p>
+    <em>
+        123
+        <span>222</span>
+        <div>333</div>
+
+    </em>
+
+    <script>
+        // innerText和innerHTML的区别
+        // 1.innerText
+        var div = document.querySelector('div');
+        div.innerText = '<strong>今天是</strong>：2022';
+
+        var p = document.querySelector('p');
+        p.innerHTML = '<strong>今天是</strong>：2022';
+
+        var em = document.querySelector('em');
+        console.log(em.innerText);
+        console.log(em.innerHTML);
+    </script>
+
+</body>
+
+</html>
