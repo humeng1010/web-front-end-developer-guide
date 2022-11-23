@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .wrap {
+            width: 600px;
+            margin: 0 auto;
+            background-color: #eee;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 600px;
+            text-align: center;
+        }
+
+        table thead tr {
+            background-color: #4297c7;
+        }
+
+        tr {
+            height: 80px;
+            border-bottom: 1px solid #000;
+        }
+
+        table thead tr th:nth-child(1) {
+            width: 80px;
+        }
+
+        table thead tr th:nth-child(2),
+        table tbody tr td:nth-child(2) {
+            width: 320px;
+            border-right: 1px solid #222;
+            border-left: 1px solid #222;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id="j_cbAll">
+                    </th>
+                    <th>商品</th>
+                    <th>价钱</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        iPhone14
+                    </td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        iPadPro
+                    </td>
+                    <td>6000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        iPadAir
+                    </td>
+                    <td>4000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        MacBookPro
+                    </td>
+                    <td>18000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var j_cbAll = document.getElementById('j_cbAll')
+        var j_tbs = document.getElementById('j_tb').getElementsByTagName('input')
+
+        j_cbAll.onclick = function () {
+            // 可以得到当前复选框的选择状态 true 或 false
+            for (var i = 0; i < j_tbs.length; i++) {
+                j_tbs[i].checked = this.checked
+            }
+        }
+
+        for (var i = 0; i < j_tbs.length; i++) {
+            j_tbs[i].onclick = function () {
+                var flag = true
+                // 每次点击下面的复选框都要循环检查复选框是否被选择
+                for (var i = 0; i < j_tbs.length; i++) {
+                    if (!j_tbs[i].checked) {
+                        flag = false
+                        break
+                    }
+                }
+                j_cbAll.checked = flag
+            }
+        }
+
+    </script>
+</body>
+
+</html>

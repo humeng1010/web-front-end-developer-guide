@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .tab {
+            width: 800px;
+            height: 600px;
+            margin: 100px auto 0;
+        }
+
+        .tab .nav {
+            height: 50px;
+            line-height: 49px;
+            border-top: 1px solid #000;
+            border-bottom: 2px solid #db2d2b;
+            background-color: #eef1ee;
+        }
+
+        .nav ul {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .nav ul li {
+            padding: 0 20px;
+            cursor: pointer;
+        }
+
+
+        .current {
+            background-color: #db2d2b;
+            color: #fff;
+        }
+
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="nav">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价(999+)</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="content">
+            <ul>
+                <li class="item" style="display: block;">
+                    商品介绍
+                    iPhone 13 1tb 远峰蓝
+
+                </li>
+                <li class="item">
+                    规格与包装
+                    送充电线
+
+                </li>
+                <li class="item">
+                    售后保障
+                    售后七天无理由
+
+                </li>
+                <li class="item">
+                    商品评价(999+)
+                    好好好
+                    丝滑
+                </li>
+                <li class="item">
+                    手机社区
+                    华为 苹果 小米
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var nav = document.querySelector('.nav')
+        var lis = nav.querySelectorAll('li')
+        var items = document.querySelectorAll('.item')
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].setAttribute('index', i)
+
+            lis[i].onclick = function () {
+
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = ''
+                }
+                this.className = 'current'
+
+                var index = this.getAttribute('index')
+
+                for (var i = 0; i < items.length; i++) {
+                    items[i].style.display = 'none'
+                }
+                items[index].style.display = 'block'
+            }
+        }
+    </script>
+</body>
+
+</html>

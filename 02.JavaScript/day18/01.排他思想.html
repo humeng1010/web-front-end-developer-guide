@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+
+    <script>
+        var btns = document.querySelectorAll('button');
+        // 循环按钮
+        for (var i = 0; i < btns.length; i++) {
+            // 给每一个按钮添加点击事件
+            btns[i].onclick = function () {
+                // 1.先清除所有元素的样式 --> 排他
+                for (var j = 0; j < btns.length; j++) {
+                    btns[j].style.backgroundColor = ''
+                }
+                // 2.在设置这个按钮的样式
+                this.style.backgroundColor = 'pink'
+            }
+        }
+    </script>
+
+</body>
+
+</html>

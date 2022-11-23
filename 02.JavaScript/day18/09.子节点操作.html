@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+    <script>
+        var ul = document.querySelector('ul')
+        var ul_lis = ul.childNodes;
+        console.log(ul_lis);//会获取所有的节点 包括文本节点
+
+        // 我们更喜欢使用下面的方法获取子节点 实际开发常用的
+        console.log(ul.children)
+
+        // 获取ol下的第一个li
+        var ol = document.querySelector('ol')
+        console.log(ol.firstElementChild);//第一个子元素的节点
+        console.log(ol.lastElementChild);//最后一个子元素的节点
+    </script>
+
+
+</body>
+
+</html>

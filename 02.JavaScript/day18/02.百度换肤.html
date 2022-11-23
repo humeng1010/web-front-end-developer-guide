@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .clearfix::before,
+        .clearfix::after {
+            display: table;
+            content: "";
+        }
+
+        .clearfix::after {
+            clear: both;
+        }
+
+        ul {
+            list-style: none;
+            width: 780px;
+            margin: 100px auto;
+        }
+
+        li {
+            float: left;
+            width: 200px;
+            height: 110px;
+            border: 5px solid #fff;
+            margin-left: -5px;
+
+        }
+
+        li img {
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        body {
+            background: url(./images/1.jpg) no-repeat top center;
+            height: 100vh;
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="clearfix">
+        <li><img src="./images/1.jpg" alt=""></li>
+        <li><img src="./images/2.png" alt=""></li>
+        <li><img src="./images/3.png" alt=""></li>
+        <li><img src="./images/4.jpeg" alt=""></li>
+    </ul>
+
+    <script>
+        var imgs = document.querySelectorAll('img');
+        var bodyImg = document.body;
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function () {
+                var src = this.src
+                bodyImg.style.backgroundImage = `url(${src})`
+            }
+        }
+    </script>
+</body>
+
+</html>
