@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            position: relative;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+
+        .son {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+    <script>
+        var father = document.querySelector('.father')
+        var son = document.querySelector('.son')
+        // 第三个参数为true 则进行事件捕获阶段 document->html->body->father->son 会先执行前的事件
+        /* son.addEventListener('click', function () {
+            alert('son')
+        }, true)
+        father.addEventListener('click', function () {
+            alert('father')
+        }, true) */
+        // 第三个参数为false或者不写 则进行的是事件冒泡阶段 son->father->body->html->document
+        son.addEventListener('click', function () {
+            alert('son')
+        })
+        father.addEventListener('click', function () {
+            alert('father')
+        })
+        document.body.addEventListener('click', function () {
+            alert('body')
+        })
+        document.documentElement.addEventListener('click', function () {
+            alert('html')
+        })
+        document.addEventListener('click', function () {
+            alert('document')
+        })
+    </script>
+</body>
+
+</html>

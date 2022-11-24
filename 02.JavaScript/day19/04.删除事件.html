@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+
+    <script>
+        var divs = document.querySelectorAll('div')
+        divs[0].onclick = function () {
+            alert('11')
+            // 传统方式删除事件
+            divs[0].onclick = null
+        }
+
+        function fn() {
+            // 函数本身没有this 存在this是因为被别人调用了 谁调用这个函数 this就是谁 
+            console.log(this);//输出的是divs[1]元素对象
+            alert('22')
+            divs[1].removeEventListener('click', fn)
+        }
+        // 注意这里的第二个参数是 函数
+        // 如果写成 fn() 那么就会传入函数调用结果，也就是 return 的内容
+        // 因为 addEventListener() 方法的第二个参数类型是函数
+        // 函数 fn 中没写 return，默认会传入 undefined 导致错误
+        divs[1].addEventListener('click', fn)
+
+    </script>
+
+</body>
+
+</html>

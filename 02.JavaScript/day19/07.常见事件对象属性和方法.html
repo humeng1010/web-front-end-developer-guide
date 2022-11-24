@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type=submit] {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>123</div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <div class="a">222</div>
+
+    <a class="jumpToBaiDu" href="https://www.baidu.com">百度</a>
+
+    <form action="https://www.baidu.com/s">
+        <input type="text" name="wd" id="">
+        <input type="submit" value="搜索">
+    </form>
+
+    <script>
+        // e.target
+        var div = document.querySelector('div')
+        div.addEventListener('click', function (e) {
+            console.log(this);//返回函数的调用者
+            console.log(e.target);//返回事件对象
+        })
+
+        var ul = document.querySelector('ul')
+        ul.addEventListener('click', function (e) {
+            console.log(this);//ul
+            console.log(e.target);//li
+        })
+        // 这里我们点击了li，但是li本身没有点击事件 由于事件冒泡到ul触发了ul的点击事件所以e.target是li
+
+        // e.type 返回事件类型
+        var a = document.querySelector('.a')
+        a.addEventListener('click', fn);
+        a.addEventListener('mouseover', fn);
+        a.addEventListener('mouseout', fn)
+        function fn(e) {
+            console.log(e.type);//click
+        }
+
+        // 
+        var jumpToBaiDu = document.querySelector('.jumpToBaiDu')
+        jumpToBaiDu.addEventListener('click', function (e) {
+            e.preventDefault()
+        })
+        var submit = document.querySelector('input[type=submit]')
+        submit.addEventListener('click', function (e) {
+            e.preventDefault()
+        })
+
+
+
+    </script>
+</body>
+
+</html>

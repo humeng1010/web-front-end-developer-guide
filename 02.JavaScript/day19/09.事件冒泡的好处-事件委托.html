@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li:nth-child(2n) {
+            background-color: #ccc;
+        }
+
+        ul li:nth-child(2n+1) {
+            background-color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>知否知否应是绿肥红瘦</li>
+        <li>知否知否应是绿肥红瘦</li>
+        <li>知否知否应是绿肥红瘦</li>
+        <li>知否知否应是绿肥红瘦</li>
+        <li>知否知否应是绿肥红瘦</li>
+        <li>知否知否应是绿肥红瘦</li>
+        <li>知否知否应是绿肥红瘦</li>
+        <li>知否知否应是绿肥红瘦</li>
+    </ul>
+
+    <script>
+        // 事件委托的原理 给父元素添加事件监听 利用事件冒泡影响到每一个子元素
+        var ul = document.querySelector('ul')
+        ul.addEventListener('click', function (e) {
+            alert('这就是事件委托！')
+            // e.target可以得到我们点击的对象
+            e.target.style.backgroundColor = 'pink'
+        })
+    </script>
+
+</body>
+
+</html>
