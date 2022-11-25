@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 等待整个页面全部加载完毕
+        window.onload = function () {
+            var btn = document.querySelector('button');
+            btn.addEventListener('click', function (e) {
+                alert('nihao')
+            })
+        }
+
+        // load是全部内容加载完毕 包含dom元素 图片 css 等
+        window.addEventListener('load', function () {
+            alert(33)
+        })
+
+        // DOMContentLoaded是DOM加载完毕 不包含图片 css 等 可以在图片很多的时候使用 避免造成图片没有加载然后页面的js失效问题
+        window.addEventListener('DOMContentLoaded', function () {
+            alert(22)
+        })
+    </script>
+</head>
+
+<body>
+
+    <button>按钮</button>
+
+
+
+</body>
+
+</html>

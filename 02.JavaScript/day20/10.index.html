@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var params = location.search
+        console.log(params);
+        var str = params.substring(1)
+        console.log(str);
+        var info = str.split('=')
+        console.log(info);
+        // decodeURI 对浏览器的中文URI编码 进行解码
+        // %E5%BC%A0%E4%B8%89 -> 张三
+        // encodeURI 对浏览器的中文进行URI编码
+        // 张三 -> %E5%BC%A0 %E4%B8%89 -> 转为10进制 ->229 188 160  228 184 137
+        document.body.innerHTML = decodeURI(info[1]) + '欢迎您👏🏻'
+    </script>
+
+</body>
+
+</html>

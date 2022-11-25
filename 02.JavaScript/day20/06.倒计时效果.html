@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        span {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #222;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="hour">1</span>
+        <span class="min">2</span>
+        <span class="second">3</span>
+    </div>
+    <button>停止定时器</button>
+    <script>
+        // 获取元素
+        var hour = document.querySelector('.hour')
+        var min = document.querySelector('.min')
+        var second = document.querySelector('.second')
+        var afterTime = +new Date('2022-11-26 0:0:0');
+
+        // 先调用一次这个函数，防止刷新的时候空白
+        getTime()
+        // 2.开启定时器
+        var timer = setInterval(getTime, 1000)
+
+        function getTime() {
+            var now = Date.now();
+            var time = (afterTime - now) / 1000;//time是剩余的秒数
+            var h = parseInt(time / 60 / 60 % 24)//小时
+            h = h < 10 ? '0' + h : h
+            hour.innerHTML = h
+            var m = parseInt(time / 60 % 60)//分
+            m = m < 10 ? '0' + m : m
+            min.innerHTML = m
+            var s = parseInt(time % 60)//秒
+            s = s < 10 ? '0' + s : s
+            second.innerHTML = s
+        }
+
+        var btn = document.querySelector('button')
+        btn.addEventListener('click', function () {
+            clearInterval(timer)
+        })
+
+    </script>
+
+</body>
+
+</html>

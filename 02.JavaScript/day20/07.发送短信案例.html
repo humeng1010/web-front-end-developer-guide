@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.addEventListener('load', function () {
+            var btn = document.querySelector('.btn')
+            btn.addEventListener('click', function () {
+                var code = ''
+                for (var i = 0; i < 6; i++) {
+                    code += Math.floor(Math.random() * 10)
+                }
+                console.log('短信验证码已发送:' + code);
+                var time = 0
+                this.disabled = true
+                var timer = setInterval(() => {
+                    time--;
+                    this.value = '请在' + time + '秒后再试';
+                    if (time <= 0) {
+                        this.disabled = false
+                        clearInterval(timer)
+                        this.value = '点击重新发送短信';
+                    }
+                }, 1000)
+
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <input type="text" name="">
+    <input type="button" value="点击发送短信" class="btn">
+
+</body>
+
+</html>
