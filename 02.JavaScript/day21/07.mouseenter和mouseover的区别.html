@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        var father = document.querySelector('.father')
+        // 会冒泡
+        father.addEventListener('mouseover', function () {
+            console.log('mouseover-鼠标进入father');
+        })
+        father.addEventListener('mouseout', function () {
+            console.log('mouseout-鼠标离开father');
+        })
+        // 不会冒泡
+        father.addEventListener('mouseenter', function () {
+            console.log('mouseenter-鼠标进入father');
+        })
+        // 根mouseenter搭配的还有mouseleave 同样也不会冒泡
+        father.addEventListener('mouseleave', function () {
+            console.log('mouseleave-鼠标离开father');
+        })
+    </script>
+</body>
+
+</html>

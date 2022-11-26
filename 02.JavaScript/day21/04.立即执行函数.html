@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function fn() {
+            console.log(1);
+        }
+        fn();
+        // 1.立即执行函数：不需要调用，立马能够自己执行的函数
+        // 写法一
+        (function sum(a, b) {
+            console.log(a + b);
+
+        }(1, 2));
+        // 写法二
+        (function sub(a, b) {
+            console.log(a - b);
+        })(1, 2);
+        // 3.立即执行函数 最大的好处就是独立创建了一个作用域，里面所有的变量都是局部变量 不会有命名冲突的情况
+    </script>
+</body>
+
+</html>

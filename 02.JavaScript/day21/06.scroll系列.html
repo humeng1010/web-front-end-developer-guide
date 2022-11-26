@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            overflow: auto;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border: 10px solid red;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域
+        内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域
+        内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域
+        内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域
+        内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域
+        内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域
+    </div>
+
+    <script>
+        var div = document.querySelector('div')
+        console.log(div.scrollHeight);//370 如果内容超出实际大小会返回内容的大小
+        console.log(div.clientHeight);//220
+        // 滚动事件
+        div.addEventListener('scroll', function () {
+            // 返回元素被卷去的头部 如果是整个页面那么就是window.pageYOffset
+            console.log(this.scrollTop);
+        })
+
+    </script>
+</body>
+
+</html>
