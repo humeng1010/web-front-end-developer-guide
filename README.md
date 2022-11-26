@@ -47,5 +47,6 @@ hello，首先做个自我介绍，本人是一位在校大学生，首先我是
 
 - 2022年11月25日：4个小时-完成js的window常见的事件对象，js的执行机制，location对象，history对象的学习
 
+- 2022年11月26日：3个小时-完成js的offsetWidth,clientWidth,立即执行函数，flexible源码分析，scroll系列，mouseenter和mouseover区别的学习
 
 
