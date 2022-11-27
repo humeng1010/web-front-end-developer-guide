@@ -49,4 +49,4 @@ hello，首先做个自我介绍，本人是一位在校大学生，首先我是
 
 - 2022年11月26日：3个小时-完成js的offsetWidth,clientWidth,立即执行函数，flexible源码分析，scroll系列，mouseenter和mouseover区别的学习
 
-
+- 2022年11月27日：5个小时-完成动画原理，缓动动画的封装，回调函数，轮播图的学习
