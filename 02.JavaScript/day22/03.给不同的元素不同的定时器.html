@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        span {
+            position: absolute;
+            top: 110px;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <button>点击我紫色盒子走你的</button>
+    <div></div>
+    <span></span>
+
+    <script>
+        function animate(ele, target) {
+            // 我们又发现 我们点击按钮次数很多的时候 会越来越快
+            // 解决方案就是让我们定时器只有一个去执行
+            // 方案一：如果存在timer属性 则说明已经点击了按钮 于是我们就直接return跳出函数
+            /* if (ele.timer) {
+                return
+            } */
+            // 方案二：我们先清除定时器 原理就是每次都清除上一个定时器 解决多个定时器的问题
+            // 只保留当前的定时器
+            clearInterval(ele.timer)
+            // 这个地方每次调用这个函数都会在内存中开辟一个timer的内存空间 浪费内存
+            // var timer = setInterval(function () {
+            // 利用js语言的动态性 给ele对象动态添加timer属性 实现每一个元素都有自己的timer
+            ele.timer = setInterval(() => {
+                if (ele.offsetLeft >= target) {
+                    clearInterval(ele.timer)
+                    return
+                }
+                ele.style.left = ele.offsetLeft + 1 + 'px'
+            }, 16)
+        }
+
+        var div = document.querySelector('div')
+        animate(div, 400)
+
+        var span = document.querySelector('span')
+
+        var btn = document.querySelector('button')
+        btn.addEventListener('click', function () {
+            animate(span, 200)
+        })
+
+
+    </script>
+</body>
+
+</html>

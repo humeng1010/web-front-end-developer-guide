@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        span {
+            position: absolute;
+            top: 110px;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+
+    <script>
+        function animate(ele, target) {
+            var timer = setInterval(function () {
+                if (ele.offsetLeft >= target) {
+                    clearInterval(timer)
+                }
+                ele.style.left = ele.offsetLeft + 1 + 'px'
+            }, 16)
+        }
+
+        var div = document.querySelector('div')
+        animate(div, 400)
+
+        var span = document.querySelector('span')
+        animate(span, 200)
+
+
+    </script>
+</body>
+
+</html>

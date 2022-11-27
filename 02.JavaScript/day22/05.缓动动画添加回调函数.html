@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            position: absolute;
+            top: 110px;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn500">点击我紫色盒子500</button>
+    <button class="btn800">点击我紫色盒子800</button>
+    <span></span>
+
+    <script>
+        function animate(ele, target, callback) {
+            clearInterval(ele.timer)
+            ele.timer = setInterval(function () {
+                // 步长公式
+                var step = (target - ele.offsetLeft) / 10
+                // 左右判断
+                step = step > 0 ? Math.ceil(step) : Math.floor(step)
+                if (ele.offsetLeft === target) {
+                    clearInterval(ele.timer)
+                    // 回调函数写到定时器里面
+                    // 如果有回调函数
+                    if (callback) {
+                        // 调用函数
+                        callback()
+                    }
+                    return
+                }
+                // ele.style.left = ele.offsetLeft + 1 + 'px'
+                ele.style.left = ele.offsetLeft + step + 'px'
+            }, 16)
+        }
+
+
+        var span = document.querySelector('span')
+        var btn500 = document.querySelector('.btn500')
+        btn500.addEventListener('click', function () {
+            animate(span, 500)
+        })
+
+        var btn800 = document.querySelector('.btn800')
+        btn800.addEventListener('click', function () {
+            animate(span, 800, function () {
+                // alert('你好')
+                span.style.backgroundColor = 'skyblue'
+            })
+        })
+
+
+    </script>
+</body>
+
+</html>
