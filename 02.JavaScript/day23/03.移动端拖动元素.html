@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        div {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        var div = document.querySelector('div')
+        // 1.触摸元素 touchstart ：获取手指初始坐标，同时获得盒子原来的位置
+        // 手指的坐标
+        var t_x
+        var t_y
+        // 盒子的坐标
+        var b_x
+        var b_y
+        div.addEventListener('touchstart', function (e) {
+            t_x = e.targetTouches[0].pageX
+            t_y = e.targetTouches[0].pageY
+            b_x = this.offsetLeft
+            b_y = this.offsetTop
+        })
+        // 2.移动手指 touchmove ：计算手指的滑动距离，并且移动盒子
+        div.addEventListener('touchmove', function (e) {
+            e.preventDefault();//阻止屏幕的默认滑动
+            // 盒子x坐标 = 盒子的初始x坐标 + 手指移动的x坐标 - 手指的初始x坐标
+            this.style.left = b_x + e.targetTouches[0].clientX - t_x + 'px'
+            this.style.top = b_y + e.targetTouches[0].clientY - t_y + 'px'
+        })
+        // 3.离开手指 touchend
+    </script>
+
+</body>
+
+</html>

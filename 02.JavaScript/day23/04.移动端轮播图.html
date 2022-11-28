@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 50vw;
+            margin: 20px auto;
+            padding: 0;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .left {
+            /* display: none; */
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            cursor: pointer;
+            line-height: 50px;
+            transition: all .2s;
+            background: rgba(0, 0, 0, .2);
+            border-top-right-radius: 100%;
+            border-bottom-right-radius: 100%;
+
+        }
+
+        .right {
+            /* display: none; */
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            line-height: 50px;
+            cursor: pointer;
+            transition: all .2s;
+            background: rgba(0, 0, 0, .2);
+            border-top-left-radius: 100%;
+            border-bottom-left-radius: 100%;
+        }
+
+        /* .left:hover,
+        .right:hover {
+            color: #fff;
+            background: rgba(0, 0, 0, .5);
+        } */
+
+        .container>ul {
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: -100%;
+            width: 700%;
+            height: 100%;
+            /* transition: all .5s; */
+        }
+
+        .container>ul>li {
+            float: left;
+            width: calc(100%/7);
+            height: 100%;
+        }
+
+        .container>ul img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .down {
+            position: absolute;
+            width: 300px;
+            height: 30px;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+
+        .container .down ul {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+        }
+
+        .container .down ul li {
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .current {
+            background-color: #eea2a4 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <span class="glyphicon glyphicon-chevron-left left"></span>
+        <span class="glyphicon glyphicon-chevron-right right"></span>
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="./images/img5.jpeg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/img4.jpeg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/img2.jpeg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/img3.jpeg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/img1.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/img5.jpeg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/img4.jpeg" alt="">
+                </a>
+            </li>
+        </ul>
+        <div class="down">
+            <ul>
+                <!-- 利用js动态生成小圆圈 -->
+                <li class="current"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var container = document.querySelector('.container')
+        var ul = document.querySelector('.container>ul')
+        // 获取container的宽度
+        var w = container.offsetWidth
+        // 利用定时器自动轮播
+        var index = 0
+        var timer = setInterval(function () {
+            index++
+            var translatex = -index * w
+            // 使用c3的过渡效果
+            ul.style.transition = 'all .3s'
+            ul.style.transform = 'translateX(' + translatex + 'px)'
+        }, 2000)
+        // 等待我们过渡完成之后再去判断  transitionend
+        ul.addEventListener('transitionend', function () {
+            // console.log(1);
+            // 如果自动播放到最后一张(和第一张是一样的图)就让他回到第一张(没有过渡)
+            if (index === 5) {
+                index = 0
+                ul.style.transition = 'none'
+                var translatex = -index * w
+                ul.style.transform = 'translateX(' + translatex + 'px)'
+            } else if (index < 0) {
+                // 如果手动滑动到第一张的前面一张 就让图片跳到最后一张的前一张
+                index = 4
+                ul.style.transition = 'none'
+                var translatex = -index * w
+                ul.style.transform = 'translateX(' + translatex + 'px)'
+            }
+        })
+    </script>
+
+</body>
+
+</html>
