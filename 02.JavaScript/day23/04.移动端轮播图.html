@@ -8,6 +8,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="./bootstrap-3.4.1-dist/css/bootstrap.min.css">
     <style>
+        body {
+            height: 2000px;
+        }
+
         ul {
             margin: 0;
             padding: 0;
@@ -96,22 +100,37 @@
 
 
         .container .down ul {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
+            text-align: center;
+            /* display: flex; */
+            /* justify-content: space-around; */
+            /* align-items: center; */
             height: 100%;
         }
 
         .container .down ul li {
-            width: 20px;
-            height: 20px;
+
+            display: inline-block;
+            margin: 0 10px;
+            line-height: 30px;
+            width: 10px;
+            height: 10px;
             background-color: #fff;
-            border-radius: 50%;
+            border-radius: 3px;
             cursor: pointer;
+            transition: all .3s;
         }
 
         .current {
-            background-color: #eea2a4 !important;
+            width: 30px !important;
+            background-color: #ccc !important;
+        }
+
+        .toTop {
+            display: none;
+            position: fixed;
+            top: 600px;
+            right: 10px;
+            font-size: 30px;
         }
     </style>
 </head>
@@ -167,11 +186,15 @@
                 <li></li>
             </ul>
         </div>
+        <span class="toTop glyphicon glyphicon-circle-arrow-up"></span>
     </div>
 
     <script>
         var container = document.querySelector('.container')
         var ul = document.querySelector('.container>ul')
+        var down_ul = document.querySelector('.down>ul')
+        var letf = document.querySelector('.left')
+        var right = document.querySelector('.right')
         // 获取container的宽度
         var w = container.offsetWidth
         // 利用定时器自动轮播
@@ -187,7 +210,8 @@
         ul.addEventListener('transitionend', function () {
             // console.log(1);
             // 如果自动播放到最后一张(和第一张是一样的图)就让他回到第一张(没有过渡)
-            if (index === 5) {
+            // 大于等于是为了防止在别的页面上停留时间过长 导致图片没有回来
+            if (index >= 5) {
                 index = 0
                 ul.style.transition = 'none'
                 var translatex = -index * w
@@ -199,6 +223,101 @@
                 var translatex = -index * w
                 ul.style.transform = 'translateX(' + translatex + 'px)'
             }
+            // 小圆点跟随变化
+            // 先把带有current类的取掉
+            down_ul.querySelector('.current').classList.remove('current')
+            // 让当前索引号 的小li加上current类
+            down_ul.children[index].classList.add('current')
+        })
+        // 手指滑动
+        var start_x = 0
+        // 判断是否下一张
+        var move_x = 0
+        container.addEventListener('touchstart', function (e) {
+            start_x = e.targetTouches[0].pageX
+            clearInterval(timer)
+        })
+        // 手指移动
+        container.addEventListener('touchmove', function (e) {
+            e.preventDefault()
+            // 计算移动距离
+            move_x = e.targetTouches[0].pageX - start_x
+            // 移动盒子
+            var translatex = -index * w + move_x
+            // 手指拖动的时候 不需要动画效果 所以要取消过渡
+            ul.style.transition = 'none'
+            ul.style.transform = 'translateX(' + translatex + 'px)'
+
+        })
+
+        container.addEventListener('touchend', function (e) {
+            if (Math.abs(move_x) > 50) {
+                if (move_x > 0) {
+                    // 右滑 播放上一张
+                    index--
+                } else if (move_x < 0) {
+                    // 左滑 播放下一张 注意避免为0的情况(就是只点击 不滑动)
+                    index++
+                }
+                var translatex = -index * w
+                // 使用c3的过渡效果
+                ul.style.transition = 'all .3s'
+                ul.style.transform = 'translateX(' + translatex + 'px)'
+            } else {
+                var translatex = -index * w
+                // 使用c3的过渡效果
+                ul.style.transition = 'all .1s'
+                ul.style.transform = 'translateX(' + translatex + 'px)'
+            }
+            clearInterval(timer)
+            timer = setInterval(function () {
+                index++
+                var translatex = -index * w
+                // 使用c3的过渡效果
+                ul.style.transition = 'all .3s'
+                ul.style.transform = 'translateX(' + translatex + 'px)'
+            }, 2000)
+        })
+
+        letf.addEventListener('touchstart', function () {
+            // clearInterval(timer)
+            index--
+            var translatex = -index * w
+            // 使用c3的过渡效果
+            ul.style.transition = 'all .3s'
+            ul.style.transform = 'translateX(' + translatex + 'px)'
+        })
+        right.addEventListener('touchstart', function () {
+            index++
+            var translatex = -index * w
+            // 使用c3的过渡效果
+            ul.style.transition = 'all .3s'
+            ul.style.transform = 'translateX(' + translatex + 'px)'
+        })
+
+        // 返回顶部
+        var goBack = document.querySelector('.toTop')
+        window.addEventListener('scroll', function (e) {
+            if (window.pageYOffset >= container.offsetTop + container.clientHeight) {
+                goBack.style.display = 'block'
+            } else {
+                goBack.style.display = 'none'
+            }
+        })
+
+        goBack.addEventListener('touchstart', function () {
+            // 被卷去的头部
+            var dis = window.pageYOffset
+
+            var timer = setInterval(function () {
+                var step = (0 - dis) / 10
+                step = Math.floor(step)
+                dis = dis + step
+                window.scroll(0, dis)
+                if (window.pageYOffset === 0) {
+                    clearInterval(timer)
+                }
+            }, 16)
         })
     </script>
 
