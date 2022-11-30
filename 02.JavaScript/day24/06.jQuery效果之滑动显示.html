@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* margin: 20px; */
+        }
+    </style>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('button').eq(0).click(function () {
+                $('div').slideDown(500, function () {
+                    // 回调函数
+                    console.log('动画执行完毕');
+                })
+            })
+            $('button').eq(1).click(function () {
+                $('div').slideUp(function () {
+                    // 回调函数
+                    console.log('动画执行完毕');
+                })
+            })
+            $('button').eq(2).click(function () {
+                // 切换
+                $('div').slideToggle(function () {
+                    // 回调函数
+                    console.log('动画执行完毕');
+                })
+            })
+            // 一般我们不加参数 直接显示或隐藏就可以了 因为动画不好看
+        })
+    </script>
+</head>
+
+<body>
+    <button>显示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+    <div></div>
+
+</body>
+
+</html>

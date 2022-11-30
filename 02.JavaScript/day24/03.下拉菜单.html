@@ -24,14 +24,15 @@
         .nav {
             display: flex;
             width: 400px;
-            height: 300px;
+            /* height: 300px; */
             justify-content: space-between;
             margin: 100px auto;
+            text-align: center;
+
         }
 
         .nav>li {
             flex: 1;
-            text-align: center;
         }
 
 
@@ -69,11 +70,15 @@
     <script src="./js/jquery.min.js"></script>
     <script>
         $(function () {
-            $('.nav>li').mouseover(function () {
-                $(this).children('ul').show()
+            /* $('.nav>li').mouseover(function () {
+                $(this).children('ul').slideDown()
             })
             $('.nav>li').mouseout(function () {
-                $(this).children('ul').hide()
+                $(this).children('ul').slideUp()
+            }) */
+
+            $('.nav>li').hover(function () {
+                $(this).children('ul').stop().slideToggle()
             })
         })
     </script>
