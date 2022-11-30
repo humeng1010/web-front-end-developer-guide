@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            background-color: #fff;
+            margin: 10px;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+    </style>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            // 隐式迭代 绑定点击事件
+            $('button').click(function () {
+                // 当前的变色
+                // $(this).css('backgroundColor', 'pink')
+                // 其余的兄弟取掉颜色 隐式迭代
+                // $(this).siblings().css('backgroundColor', '')
+
+                // 链式编程
+                $(this).css('backgroundColor', 'pink').siblings('button').css('backgroundColor', '')
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <button>按钮</button><button>按钮</button><button>按钮</button><button>按钮</button><button>按钮</button><button>按钮</button><button>按钮</button><button>按钮</button><button>按钮</button><button>按钮</button>
+
+</body>
+
+</html>
