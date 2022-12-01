@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            function getbooks() {
+
+                $.get('http://www.liulongbin.top:3006/api/getbooks', function (res) {
+                    if (res.status !== 200) {
+                        return alert('获取图书列表失败')
+                    }
+                    var rows = []
+                    $.each(res.data, function (i, item) {
+                        rows.push('<tr><td>' + item.id + '</td><td>' + item.bookname +
+                            '</td><td>' + item.author + '</td><td>' + item.publisher +
+                            '</td><td><a class="del" data-id="' + item.id + '" href="javascript:;">删除</a></td></tr>')
+                    })
+                    $('#bookBody').empty().append(rows.join(''))
+
+                })
+            }
+            getbooks()
+            $('#bookBody').on('click', '.del', function () {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://www.liulongbin.top:3006/api/delbook',
+                    data: { id: $(this).attr('data-id') },
+                    success: function (res) {
+                        // console.log(res);
+                        if (res.status !== 200) {
+                            return alert('删除失败')
+                        }
+                        // alert('删除成功')
+                        getbooks()
+                    }
+                })
+            })
+            $('#addBook').click(function () {
+                var book = {}
+                book.bookname = $('#bookname').val()
+                book.author = $('#author').val()
+                book.publisher = $('#publisher').val()
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://www.liulongbin.top:3006/api/addbook',
+                    data: book,
+                    success: function (res) {
+                        alert(res.msg)
+                        getbooks()
+                    }
+                })
+            });
+
+
+        })
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加新图书</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-3 col-lg-3">
+                    <div class="input-group">
+                        <div class="input-group-addon">书名</div>
+                        <input type="text" class="form-control" id="bookname" placeholder="bookname">
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <div class="input-group">
+                        <div class="input-group-addon">作者</div>
+                        <input type="text" class="form-control" id="author" placeholder="author">
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <div class="input-group">
+                        <div class="input-group-addon">出版社</div>
+                        <input type="text" class="form-control" id="publisher" placeholder="publisher">
+                    </div>
+                </div>
+
+                <div style="text-align: center;" class="col-md-3 col-lg-3">
+                    <button type="button" class="btn btn-primary" id="addBook">添加</button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>书名</th>
+                    <th>作者</th>
+                    <th>出版社</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="bookBody">
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+</body>
+
+</html>
