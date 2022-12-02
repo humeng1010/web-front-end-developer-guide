@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #angel {
+            position: absolute;
+        }
+    </style>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            // 1.获取图片
+            var angel = $('#angel')
+            // 2.绑定mousemove事件
+            // 节流
+            var timer = null
+            $(document).mousemove(function (e) {
+                // 如果有timer 则直接返回 不执行下面的步骤
+                if (timer) {
+                    return
+                }
+                timer = setTimeout(function () {
+                    angel.css('top', e.pageY - (angel.height() / 2)).css('left', e.pageX - (angel.width() / 2))
+                    console.log('ok');
+                    timer = null
+                }, 16)
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <img src="./angel.gif" alt="" id="angel">
+
+</body>
+
+</html>
