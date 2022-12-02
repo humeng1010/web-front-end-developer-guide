@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.数组的解构 使用的比较少
+        const COLOR = ['red', 'blue', 'green']
+        let [red, blue, green] = COLOR
+        console.log(red);
+        console.log(blue);
+        console.log(green);
+        // 2.对象的解构
+        const zhao = {
+            name: '赵本山',
+            age: 50,
+            show: function () {
+                console.log('我可以演小品');
+            }
+        }
+
+        /*  let { name, age, show } = zhao
+         console.log(name);
+         console.log(age);
+         console.log(show);
+         show() */
+
+        let { show } = zhao
+        show()
+        show()
+        show()
+
+    </script>
+
+</body>
+
+</html>

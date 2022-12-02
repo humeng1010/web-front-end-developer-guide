@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 变量声明
+        let a;
+        let b, c, d;
+        let e = 100;
+        let f = 521, g = 'i love you', h = [];
+        // 1.变量不能重复声明 ncaught SyntaxError: Identifier 'star' has already been declared
+        // let star = '邓紫棋'
+        // let star = '刘德华'
+
+        // 2.块级作用域 全局，函数，eval
+        // if else while for
+        {
+            let man = 'me';
+        }
+        // console.log(man);//man is not defined
+
+        // 3.不存在变量提升
+        console.log(aa);//undefined
+        var aa = 'hello'
+
+        // console.log(bb);//Cannot access 'bb' before initialization
+        let bb
+        console.log(bb);
+        bb = 'world'
+        console.log(bb);
+
+        // 4.不影响作用域链
+        {
+            let school = '南京'
+            function fn() {
+                console.log(school);
+            }
+            fn();
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 声明常量
+        const SCHOOL = 'AHSTU'
+        // 1.必须要赋初始值
+        // const A;
+        // 2.一般使用大写字母
+        // 3.常量的值不能修改
+        // SCHOOL = 'bb'
+        // 4.块级作用域
+        {
+            const ME = 'red'
+        }
+        // console.log(ME);
+
+        // 5.对数组和对象的元素的修改 不算做对常量的修改 不会报错 因为常量指向的地址没有发生改变
+        const YEAR = ['春', '夏', '秋']
+        YEAR.push('冬')
+        console.log(YEAR);
+    </script>
+
+</body>
+
+</html>

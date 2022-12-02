@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            float: left;
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            border: 1px solid skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>点击框框切换颜色</h1>
+    <hr>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+
+    <script>
+        let item = document.querySelectorAll('.item')
+
+        for (let i = 0; i < item.length; i++) {
+            item[i].addEventListener('click', function () {
+                // this.style.background = 'pink'//正常写法
+                item[i].style.background = 'pink'// 用var声明i 报错 原因如下
+                console.log(i);
+            })
+        }
+        // console.log(i);//3 当for里面的i用var定义的时候 在外侧打印 我们发现i是3 没有3这个元素 所以报错
+
+        // 用let 如下
+        /* {
+            let i = 0
+            item[i].addEventListener('click', function () {
+                // this.style.background = 'pink'//正常写法
+                item[i].style.background = 'pink'// 用var声明i 报错 原因如下
+                console.log(i);
+            })
+        }
+        {
+            let i = 1
+            item[i].addEventListener('click', function () {
+                // this.style.background = 'pink'//正常写法
+                item[i].style.background = 'pink'// 用var声明i 报错 原因如下
+                console.log(i);
+            })
+        }
+        {
+            let i = 2
+            item[i].addEventListener('click', function () {
+                // this.style.background = 'pink'//正常写法
+                item[i].style.background = 'pink'// 用var声明i 报错 原因如下
+                console.log(i);
+            })
+        } */
+    </script>
+</body>
+
+</html>

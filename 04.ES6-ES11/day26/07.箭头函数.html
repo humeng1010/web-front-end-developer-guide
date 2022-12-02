@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 声明一个函数
+        /* let fn = function () {
+
+        } */
+        /* let fn = ()=>{
+            
+        } */
+        let fn = (a, b) => {
+            return a + b
+        }
+
+        // 调用函数
+        let result = fn(1, 2)
+        console.log(result);
+        // 1.this是静态的 this始终指向函数声明时所在的作用域下的 this的值
+        function getName() {
+            console.log(this.name);
+        }
+        let getName2 = () => {
+            console.log(this.name);
+        }
+
+        window.name = 'andy'
+        const SCHOOL = {
+            name: '大肥羊'
+        }
+
+        // 直接调用
+        // getName()//this是window 所以结果是andy
+        // getName2()//函数声明在window的作用域下 所以结果也是andy
+
+        // 这个相当于使用SCHOOL调用getName函数
+        getName.call(SCHOOL)//普通函数的结果发生了改变 大肥羊 
+        getName2.call(SCHOOL)//箭头函数的结果不变 因为this是静态的 始终指向函数声明时所在的作用域下的this值
+
+        // 2.不能作为构造函数实例化对象
+        /* let Person = (name, age) => {
+            this.name = name
+            this.age = age
+        } */
+        // let me = new Person('red', 20)//Person is not a constructor
+
+        // 3.不能使用arguments对象
+        let fn1 = () => {
+            console.log(arguments);
+        }
+        // fn1()
+
+        // 4.箭头函数的简写
+        // 4.1省略小括号 当参数有且只有一个的时候 可以省略小括号
+        let add = a => {
+            return a + a
+        }
+        console.log(add(9));
+        // 4.2省略花括号 当函数体只有一句 并且是return的时候 可以省略花括号并且去掉return
+        let pow = a => a * a
+        console.log(pow(9))
+
+        // 使用箭头函数的例子
+        const array = [4, 3, 2, 6, 77, 11, 1]
+        array.sort((a, b) => a - b)//数组排序中的比较函数
+        console.log(array);
+
+    </script>
+
+</body>
+
+</html>

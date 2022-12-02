@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ad {
+            width: 200px;
+            height: 200px;
+            background-color: #91a;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ad"></div>
+
+    <script>
+        // 案例一 点击div两秒后变为粉色
+        let ad = document.querySelector('#ad')
+        ad.addEventListener('click', function () {
+            // 保存this的值
+            // let _this = this
+            // 定时器
+            setTimeout(() => {
+                // 这里的this有问题 不使用箭头函数this是window 使用箭头函数this则是在当前作用域下的this
+                this.style.background = 'pink'
+            }, 2000);
+        })
+
+        // 案例二 从数组中返回偶数元素
+        const arr = [1, 6, 9, 10, 100, 25]
+        /* const result = arr.filter(function (item) {
+            return item % 2 === 0
+        })
+        console.log(result); */
+        // 简化
+        const result = arr.filter(item => item % 2 === 0)
+        console.log(result);
+
+        // 总结
+        // 箭头函数适合与this无关的回调 定时器 数组的方法回调
+        // 箭头函数不适合与this有关的回调 事件回调 对象的方法
+
+
+    </script>
+
+</body>
+
+</html>
