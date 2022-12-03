@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 生成器其实是一个特殊的函数
+        // 异步编程 纯回调函数 node fs ajax
+        // 函数代码的分隔符
+        function* gen() {
+            console.log(111);
+            yield '第一块'
+            console.log(222);
+            yield '第二块'
+            console.log(333);
+            yield '第三块'
+            console.log(444);
+        }
+
+        let iterator = gen()
+        // iterator.next()//111
+        // iterator.next()//222
+        // iterator.next()//333
+        // iterator.next()//444
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+
+        for (let v of gen()) {
+            console.log(v);
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+        // 1.数组的合并
+        const a_d = ['a', 'b', 'c', 'd']
+        const e_h = ['e', 'f', 'g', 'h']
+        // const a_h = a_d.concat(e_h)//es5
+        const a_h = [...a_d, ...e_h]//['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+        console.log(a_h);
+
+        // 2.数组的克隆 如果有引用类型 拷贝的是地址 即浅拷贝
+        const rap = ['E', 'G', 'M']
+        const sing = [...rap]
+        console.log(sing);//['E', 'G', 'M']
+
+        // 3.将伪数组 转为真正的数组
+        const divs = document.querySelectorAll('div')
+        console.log(divs);
+
+        const divArr = [...divs]
+        console.log(divArr);
+
+    </script>
+
+</body>
+
+</html>

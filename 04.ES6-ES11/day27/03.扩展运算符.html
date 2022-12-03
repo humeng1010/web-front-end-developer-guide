@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // [...]扩展运算符能将 数组 转换为逗号分割的 参数序列
+        // 声明一个数组 ...
+        const color = ['red', 'blue', 'green', 'pink']
+        // => 'red', 'blue', 'green', 'pink'
+
+        function fn() {
+            console.log(arguments);
+        }
+        fn(...color)//相当于 fn('red', 'blue', 'green', 'pink'); 这样
+    </script>
+
+</body>
+
+</html>

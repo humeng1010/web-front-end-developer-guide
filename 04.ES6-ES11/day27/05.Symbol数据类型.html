@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Symbol的值是唯一的 用来解决命名冲突的问题
+        // Symbol值不能与其它数据类型进行运算
+        // Symbol定义的对象属性不能使用 for...in 循环遍历 但是可以使用Reflect.ownKeys来获取对象的所有键名
+
+        // 1.创建一个Symbol
+        let s = Symbol()
+        console.log(s, typeof s);//Symbol() 'symbol'
+
+        let s2 = Symbol('张三')
+        let s3 = Symbol('张三')
+        console.log(s2);//Symbol(张三)
+        console.log(s3);//Symbol(张三)
+        console.log(s2 === s3);//false 因为Symbol是唯一的 虽然参数一样 但是 创建出来的唯一的编号不一样
+
+        // Symbol.for 方法
+        // 会根据给定的键来 从运行时的 symbol 注册表中找到对应的 symbol
+        // 如果找到了，则返回它，否则 新建一个与该键关联的 symbol并放入全局 symbol 注册表中
+
+        let s4 = Symbol.for('张三')
+        let s5 = Symbol.for('张三')
+        console.log(s5 === s4);//true
+
+        // 七种数据类型
+        // undefined
+        // string Symbol
+        // object
+        // null number
+        // boolean
+    </script>
+
+</body>
+
+</html>

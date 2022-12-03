@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getUser() {
+            setTimeout(() => {
+                let data = '用户数据'
+                iterator.next(data)//第二次调用next函数 并传入data数据 作为第一次yield的返回结果
+            }, 1000);
+        }
+        function getOrder() {
+            setTimeout(() => {
+                let data = '订单数据'
+                iterator.next(data)//第三次调用next函数 并传入data数据 作为第二次yield的返回结果
+            }, 1000);
+        }
+        function getGoods() {
+            setTimeout(() => {
+                let data = '商品数据'
+                iterator.next(data)//第二次调用next函数 并传入data数据 作为第一次yield的返回结果
+            }, 1000);
+        }
+
+
+        function* gen() {
+            let userData = yield getUser()
+            console.log(userData);
+            let orderData = yield getOrder()
+            console.log(orderData);
+            let goodsData = yield getGoods()
+            console.log(goodsData);
+            console.log('获取数据完毕');
+        }
+
+        let iterator = gen()
+        iterator.next()//第一次调用next函数会执行getUser函数
+    </script>
+
+</body>
+
+</html>

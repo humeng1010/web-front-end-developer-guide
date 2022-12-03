@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 向对象中添加方法 up down 但是我们不知道这个对象中有没有这些方法
+        let game = {
+            name: '俄罗斯方块',
+            up() {
+                console.log('我可以向上');
+            },
+            down() {
+                console.log('我可以向下');
+            }
+        }
+
+
+        game[Symbol('up')] = function () {
+            console.log('我也可以上升');
+        }
+        game[Symbol('down')] = function () {
+            console.log('我也可以下降');
+        }
+        console.log(game);
+
+
+        //
+        let games = {
+            name: '王者荣耀',
+            [Symbol('move')]: function () {
+                console.log('我可以移动');
+            },
+            [Symbol('skill')]: function () {
+                console.log('我可以使用技能');
+            }
+        }
+        console.log(games);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 实例化Promise对象
+        const p = new Promise(function (resolve, reject) {
+            setTimeout(() => {
+                // let data = '数据库中的用户数据'
+                // resolve 成功
+                // resolve(data)
+
+                let err = '获取数据失败'
+                // reject 失败
+                reject(err)
+            }, 1000);
+        })
+
+        p.then(function (value) {
+            // 成功的回调
+            console.log(value);
+        }, function (reason) {
+            // 失败的回调
+            console.error(reason);
+        })
+    </script>
+
+</body>
+
+</html>

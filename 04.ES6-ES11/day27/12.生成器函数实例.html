@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1s后输出111 然后 2s后输出222 然后 3s后输出333
+        // 回调地狱
+        /* setTimeout(() => {
+            console.log(111);
+            setTimeout(() => {
+                console.log(222);
+                setTimeout(() => {
+                    console.log(333);
+
+                }, 3000);
+            }, 2000);
+        }, 1000) */
+
+        function one() {
+            setTimeout(() => {
+                console.log(111);
+                iterator.next()
+
+            }, 1000);
+        }
+        function two() {
+            setTimeout(() => {
+                console.log(222);
+                iterator.next()
+            }, 2000);
+        }
+        function three() {
+            setTimeout(() => {
+                console.log(333);
+                iterator.next()
+            }, 3000);
+        }
+
+        function* gen() {
+            yield one()
+            yield two()
+            yield three()
+        }
+
+        // 遇到yield语句，就暂停执行后面的操作，并将紧跟在yield后面的那个表达式的值，作为返回的对象的value属性的值。
+        // 再次调用next方法时，再继续往下执行，直到遇到下一个yield语句。
+        let iterator = gen()
+        iterator.next()
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const myClass = {
+            name: '一班',
+            stus: [
+                '小明',
+                '小红',
+                '小猪',
+                '小张'
+            ],
+            [Symbol.iterator]: function () {
+                // 索引变量
+                let index = 0
+                // 保存当前对象的this
+                // let _this = this
+                return {
+                    // 或者使用箭头函数 this就是在当前函数声明的作用域下的
+                    next: () => {
+                        if (index < this.stus.length) {
+                            const result = { value: this.stus[index], done: false }
+                            // 下标自增
+                            index++
+                            return result
+                        } else {
+                            // console.log(index);
+                            return { value: undefined, done: true }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 遍历这个对象每次返回的结果是stus数组的成员 使用 for of
+        for (let i of myClass) {
+            console.log(i);//myClass is not iterable 没有iterator这个接口
+        }
+
+        let iter = myClass[Symbol.iterator]()
+        console.log(iter);
+        console.log(iter.next());
+        console.log(iter.next());
+        console.log(iter.next());
+        console.log(iter.next());
+        console.log(iter.next());
+    </script>
+
+</body>
+
+</html>

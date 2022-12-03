@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // Symbol.iterator 迭代器接口
+        const xiyou = ['唐僧', '孙悟空', '猪八戒', '沙僧']
+        // 使用for of遍历数组
+        /* for (let i of xiyou) {
+            console.log(i);
+        } */
+        console.log(xiyou);
+        let iterator = xiyou[Symbol.iterator]()
+        // 调用对象的next方法
+        console.log(iterator.next());//{value: '唐僧', done: false}
+        console.log(iterator.next());//{value: '孙悟空', done: false}
+        console.log(iterator.next());//{value: '猪八戒', done: false}
+        console.log(iterator.next());//{value: '沙僧', done: false}
+        console.log(iterator.next());//{value: undefined, done: true}
+    </script>
+
+</body>
+
+</html>

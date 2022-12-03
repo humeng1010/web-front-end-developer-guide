@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // Symbol.hasInstance
+        // 当对象 调用 instanceof 和Person比较数据类型的时候 会自动触发这个方法
+        class Person {
+            // 当对象 调用 instanceof 和Person比较数据类型的时候 会自动触发这个方法
+            static [Symbol.hasInstance](param) {
+                console.log(param);
+                console.log('我被用来检测类型了');
+                return false
+            }
+        }
+
+        let o = {
+            name: '我是o'
+        }
+        console.log(o instanceof Person);
+
+        let person = new Person()
+        console.log(person instanceof Person);
+
+        // Symbol.isConcatSpreadable
+        // 表示 该对象用于Array.prototype.concat()的时候是否可以展开
+        const arr1 = [1, 2, 3]
+        const arr2 = [4, 5, 6]
+        arr2[Symbol.isConcatSpreadable] = false//表示 该对象用于Array.prototype.concat()的时候是否可以展开
+        console.log(arr1.concat(arr2));//(4) [1, 2, 3, Array(3)]
+        console.log([...arr1, ...arr2]);//(6) [1, 2, 3, 4, 5, 6]
+    </script>
+
+</body>
+
+</html>
