@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // // ES5
+        // function Phone() {
+
+        // }
+        // Phone.name = '华为'//这个属性是属于函数对象的 并不属于实例对象
+        // Phone.price = 3999//这个属性是属于函数对象的 并不属于实例对象
+        // Phone.prototype.call = function () {//在函数对象的原型上添加的属性 可以被实例对象访问
+        //     console.log('我可以打电话');
+        // }
+        // let huawei = new Phone()
+        // console.log(huawei.name);//undefined
+        // console.log(Phone.name);//华为
+        // console.log(huawei.price);//undefined
+        // console.log(Phone.price);//3999
+        // huawei.call()
+
+        // ES6
+        class Phone {
+            // 使用static修饰的属性 只能使用类访问 属于类 不属于实例对象
+            static name = '手机'
+            static change() {
+                console.log('我可以改变世界');
+            }
+            call() {
+                console.log('我可以打电话');
+            }
+        }
+
+        let apple = new Phone()
+        console.log(apple.name);
+        console.log(Phone.name);
+        // apple.change();//is not function
+        Phone.change()
+
+        apple.call()
+
+    </script>
+
+</body>
+
+</html>

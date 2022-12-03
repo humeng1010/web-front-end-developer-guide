@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 声明一个set
+        // let s = new Set();
+        let s = new Set([1, 2, 3, 4, 5, 1])
+        console.log(s);//Set(5) {1, 2, 3, 4, 5}
+
+        // 元素个数
+        console.log(s.size);
+        // 添加元素
+        s.add('6')
+        console.log(s);
+        // 删除元素
+        s.delete(1)
+        console.log(s);
+        // 检测
+        console.log(s.has('6'));
+        // 清空
+        // s.clear()
+        console.log(s);
+
+        // for of 遍历
+        for (let v of s) {
+            console.log(v);
+        }
+    </script>
+
+</body>
+
+</html>

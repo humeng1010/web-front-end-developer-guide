@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 声明Map
+        let map = new Map()
+        // 添加元素
+        map.set('name', 'red')
+        map.set('show', function () {
+            console.log('ishow');
+        })
+        let key = {
+            school: 'AHSTU'
+        }
+        map.set(key, ['北京', '上海', '广州'])
+        // 长度
+        console.log(map.size);
+        console.log(map);
+        // 删除
+        map.delete('name')
+        console.log(map);
+        // 获取
+        console.log(map.get('show'));
+        // 清空
+        // map.clear()
+        console.log(map);
+
+        // for of
+        for (let v of map) {
+            console.log(v);
+        }
+    </script>
+
+</body>
+
+</html>
