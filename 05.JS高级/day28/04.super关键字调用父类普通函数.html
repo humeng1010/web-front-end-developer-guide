@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Father {
+            say() {
+                return '我是Father'
+            }
+        }
+
+        class Son extends Father {
+            say() {
+                // console.log('我是son');
+                // super.say() 就是调用父类中的普通函数say()
+                console.log(super.say() + '的son');
+            }
+        }
+
+        const son = new Son()
+        son.say()
+        // 实例化的是Son调用say方法 遵循就近原则
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 1.创建类class 创建一个明星类
+        class Star {
+            // 构造函数 创建实例的时候自动执行
+            constructor(uname, age) {
+                // this指向的是创建出来的实例
+                this.uname = uname
+                this.age = age
+            }
+            // 添加方法
+            say(song) {
+                console.log(this.uname + song);
+            }
+        }
+        // 2.利用类创建对象 new
+        let ldh = new Star('刘德华', 18)
+        ldh.say('你好')
+        let zxy = new Star('张学友', 20)
+        zxy.say('hello')
+    </script>
+</body>
+
+</html>

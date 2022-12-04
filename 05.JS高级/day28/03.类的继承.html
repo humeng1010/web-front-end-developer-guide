@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // extends继承关键字
+        /* class Father {
+            constructor() {
+
+            }
+            money() {
+                console.log(100);
+            }
+        }
+
+        class Son extends Father {
+
+        }
+
+        const son = new Son()
+        son.money() */
+
+        // super方法调用父类的构造器
+        class Father {
+            constructor(a, b) {
+                this.a = a
+                this.b = b
+            }
+            sum() {
+                console.log(this.a + this.b);
+            }
+        }
+
+        class Son extends Father {
+            constructor(a, b) {
+                // 使用super方法调用父类的构造器 并且把参数传递给父类
+                super(a, b)
+            }
+        }
+
+        const son = new Son(11, 22)
+        son.sum()
+
+    </script>
+
+</body>
+
+</html>

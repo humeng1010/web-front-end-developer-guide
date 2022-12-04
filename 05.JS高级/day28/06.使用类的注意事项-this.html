@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button>点击</button>
+
+    <script>
+        var that;
+        class Star {
+            constructor(uname, age) {
+                this.uname = uname
+                this.age = age
+                this.btn = document.querySelector('button')
+                // 所以这里的调用say的调用者是btn按钮 而btn没有uname属性 所以点击按钮输出的是undefined
+                // 解决办法
+                // 1.使用that保存实例的this 在say方法里面使用that.uname
+                // 2.使用箭头函数在箭头函数内部调用say() 因为箭头函数的this是静态的 指向函数定义时候的作用域
+                this.btn.onclick = () => this.say()
+
+                that = this
+                console.log(this);
+            }
+            say() {
+                console.log(this);
+                console.log(this.uname);
+            }
+
+        }
+
+        const star = new Star('刘德华', 22)
+        // 构造函数里面的this指向的是实例对象
+        console.log(that === star);
+        // 方法里面的this指向的是调用者
+        star.say()
+
+        // 总结
+        // 类中构造函数的this指向的是实例对象
+        // 方法的this指向的是方法的调用者
+
+    </script>
+
+</body>
+
+</html>
