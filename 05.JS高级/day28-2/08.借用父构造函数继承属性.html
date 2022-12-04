@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function Father(uname, age) {
+            this.uname = uname
+            this.age = age
+        }
+
+        function Son(uname, age, score) {
+            // 使用call调用Father方法 传递当前Son的this 改变Father的this指向Son 并且传递参数
+            Father.call(this, uname, age)
+            // 子类的独有方法
+            this.score = score
+        }
+
+        const son = new Son('Son', 18, 100)
+        console.log(son);
+    </script>
+
+</body>
+
+</html>

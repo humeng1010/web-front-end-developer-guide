@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var o = {
+            id: 1,
+            pname: 'iPhone',
+            price: 8999,
+        }
+        // 1.设置属性是否可以修改
+        Object.defineProperty(o, 'id', {
+            // 设置id不可修改
+            writable: false
+        })
+        o.id = 2//最后打印发现id并没有修改
+
+        // 2.添加属性
+        // 用def添加的默认不可修改，但是把writable设置为true就可以修改了
+        Object.defineProperty(o, 'num', {
+            // 属性的值
+            value: 300,
+            // writable: true
+            enumerable: true
+        })
+        // o.num = 3
+
+        // 3.修改属性
+        Object.defineProperty(o, 'price', {
+            value: 99,
+        })
+
+        Object.defineProperty(o, 'address', {
+            value: '中国山东',
+            // 是否可修改的 默认是false
+            writable: false,
+            // 是否可遍历的 默认是false
+            enumerable: false,
+            // 是否可删除的或者再次修改这个特性
+            configurable: false
+        })
+
+        console.log(o);
+        console.log(Object.keys(o));
+
+        // 删除属性
+        delete o.address
+        console.log(o);
+        delete o.pname
+        console.log(o);
+
+
+
+    </script>
+
+</body>
+
+</html>

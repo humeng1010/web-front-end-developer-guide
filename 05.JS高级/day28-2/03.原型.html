@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function Star(uname, age) {
+            this.uname = uname
+            this.age = age
+            /* this.sing = function () {
+                console.log('我可以唱歌');
+            } */
+        }
+        // 构造函数的原型对象里面添加sing方法 实现共享
+        Star.prototype.sing = function () {
+            console.log('我可以唱歌');
+        }
+        const ldh = new Star('刘德华', 20)
+        const zxy = new Star('张学友', 22)
+        // console.log(ldh.sing === zxy.sing);//flase 说明每次创建一个对象 都会在内存中开辟一个新的空间存放复杂数据类型 所以sing的地址指向不同
+        ldh.sing()
+        zxy.sing()
+        console.log(ldh.sing === zxy.sing);//true
+        // 原型是个对象，既不是静态成员也不是实例成员，可以理解为构造函数的一个外挂插件
+    </script>
+</body>
+
+</html>

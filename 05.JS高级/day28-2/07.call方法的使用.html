@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // call方法
+
+        function fn(x, y) {
+            console.log('hello');
+            console.log(this);
+            console.log(x + y);
+        }
+        var o = {
+            uname: 'andy'
+        }
+        // 传统方法的调用
+        // fn(1, 2)
+        // 相当于 window.fn(1,2) 都是window调用的 所以函数内部的this指向的是window
+
+        // call方法调用函数 语法 fn.call(thisArg,...argArr)
+        // 第一个参数改变函数的this指向 指向o对象 后面的参数传递参数
+        fn.call(o, 1, 2)
+    </script>
+
+</body>
+
+</html>

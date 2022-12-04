@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        var o = {
+            id: 1,
+            pname: 'iPhone',
+            price: 8999,
+            num: 200
+        }
+
+        // 获取对象的所有属性名 并返回属性名数组
+        var arr = Object.keys(o)
+        console.log(arr);
+        arr.forEach(v => console.log(v, o[v]))
+    </script>
+
+</body>
+
+</html>

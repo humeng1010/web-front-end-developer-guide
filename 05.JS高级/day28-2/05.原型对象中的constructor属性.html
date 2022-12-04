@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname
+            this.age = age
+        }
+        /* Star.prototype.sing = function () {
+            console.log('我可以唱歌');
+        }
+        Star.prototype.movie = function () {
+            console.log('我可以演电影');
+        } */
+        // 这样写导致prototype对象的指向变了 指向了一个新的原型对象 在这个新的原型对象里面没有constructor 属性 需要自己手动指向 Star
+        Star.prototype = {
+            // 把原型对象中的constructor手动指回到Star构造函数
+            constructor: Star,
+            sing() {
+                console.log('我可以唱歌');
+            },
+            movie: function () {
+                console.log('我可以演电影');
+            }
+        }
+
+        const ldh = new Star('刘德华', 20)
+        const zxy = new Star('张学友', 22)
+        console.log(Star.prototype);//{constructor: ƒ, sing: ƒ, movie: ƒ}
+        console.log(ldh.__proto__);//{constructor: ƒ, sing: ƒ, movie: ƒ}
+        console.log(Star.prototype === ldh.__proto__);
+        console.log(Star.prototype.constructor);
+        //ƒ Star(uname, age) {
+        // this.uname = uname
+        // this.age = age
+        // }
+        console.log(ldh.__proto__.constructor);
+
+    </script>
+
+</body>
+
+</html>

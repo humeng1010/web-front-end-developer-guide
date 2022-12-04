@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Father(uname, age) {
+            this.uname = uname
+            this.age = age
+        }
+        Father.prototype.money = function () {
+            console.log('我挣了3000元');
+        }
+
+        function Son(uname, age, score) {
+            // 使用call调用Father方法 传递当前Son的this 改变Father的this指向Son 并且传递参数
+            Father.call(this, uname, age)
+            // 子类的独有方法
+            this.score = score
+        }
+
+        // Son.prototype = Father.prototype//这样直接赋值是错误的 当我们给子类的原型对象上添加方法的时候 父类也会被添加上这个方法
+
+        // 我们又想到 通过实例对象可以访问原型对象上的方法(他们是通过对象原型相连的__proto__)
+        // 所以 我们可以把Son的原型对象指向Father的实例对象 通过实例对象的对象原型__proto__找到Father的原型对象 从而继承Father原型对象上的的方法
+        // 而且Father实例对象的地址 和 Father原型对象的地址不一样 所以给Son新增方法不会影响到Father了
+        Son.prototype = new Father()
+        // 因为修改了Son的原型对象 原先的被覆盖掉了 所以别忘记需要重新修改constructor的指向为Son
+        Son.prototype.constructor = Son
+        Son.prototype.exam = function () {
+            console.log('我考了100分');
+        }
+        const son = new Son('Son', 18, 100)
+        console.log(son);
+        console.log(Father.prototype);
+    </script>
+
+</body>
+
+</html>
