@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 改变函数内部的this指向 js提供了三种方法 call() apply() bind()
+
+        var o = {
+            name: 'andy'
+        }
+
+        function fn(a, b) {
+            console.log(this);
+            console.log(a + b);
+        }
+
+        console.log('=========call方法===========');
+        // 1.call()
+        // fn()//window
+        // fn.call()//window
+        fn.call(o, 1, 2)//o
+        // call 可以调用函数 还可以改变函数内部的this指向
+
+        // call主要作用可以实现函数继承父类的属性
+        function Father(uname, age, sex) {
+            this.uname = uname
+            this.age = age
+            this.sex = sex
+        }
+        function Son(uname, age, sex, score) {
+            Father.call(this, uname, age, sex)
+            this.score = score
+        }
+
+        const son = new Son('andy', '22', '男', 99)
+        console.log(son);
+        console.log('==========apply方法==========');
+
+        // 2.apply方法
+        // 和call方法基本相同 但是第二个参数传递的是数组
+        fn.apply(o, [1, 2])
+
+        // apply主要应用 利用数学对象求数组的最大值
+        var arr = [11, 33, 12, 10, 44]
+        let max = Math.max.apply(Math, arr)
+        let min = Math.min.apply(Math, arr)
+        console.log(max);
+        console.log(min);
+        console.log('==========bind方法==========');
+
+        // 3.bind方法
+        // 和call方法基本相同 但是不会自动调用函数 我们需要接收返回值 该返回值是一个函数 需要手动调用
+        let f = fn.bind(o, 1, 2)
+        f()
+
+
+
+    </script>
+
+</body>
+
+</html>

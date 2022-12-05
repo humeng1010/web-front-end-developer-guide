@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <script>
+        /* const btn = document.querySelector('button')
+        btn.addEventListener('click',function(){
+            console.log(1);
+            // 点击按钮后禁用这个按钮
+            this.disabled = true
+            // var that = this
+            // 在3秒之后再启用
+            setTimeout(function() {
+                // that.disabled = false
+                this.disabled = false
+            }.bind(this), 3000);
+            // 使用bind改变定时器里面的函数的this指向 后面可以直接通过箭头函数来解决
+        }) */
+        const btns = document.querySelectorAll('button')
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () {
+                this.disabled = true
+                setTimeout(function () {
+                    this.disabled = false
+                }.bind(this), 3000);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

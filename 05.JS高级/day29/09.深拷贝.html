@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var obj = {
+            id: 1,
+            name: 'andy',
+            msg: {
+                age: 18
+            },
+            color: ['pink', 'red']
+        }
+        var o = {}
+        function deepCopy(newObj, oddObj) {
+            for (const key in oddObj) {
+                // 获取每一个属性
+                var item = oddObj[key]
+                // 判断属性的数据类型
+                if (item instanceof Array) {
+                    // 如果是数组 则进行递归
+                    newObj[key] = []
+                    deepCopy(newObj[key], item)
+                } else if (item instanceof Object) {
+                    // 如果是对象 也进行递归
+                    newObj[key] = {}
+                    deepCopy(newObj[key], item)
+                } else {
+                    // 如果是普通类型直接赋值
+                    newObj[key] = item
+                }
+            }
+        }
+        deepCopy(o, obj)
+        console.log(o);
+        obj.msg.age = 22
+        console.log(o);
+    </script>
+</body>
+
+</html>

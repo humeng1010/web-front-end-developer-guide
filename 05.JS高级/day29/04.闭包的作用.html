@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 可以让fn外面的作用域访问fn内部的局部变量
+        function fn() {
+            let num = 6
+
+            /* function fun() {
+                console.log(num);
+            }
+            // 我们把这个函数对象返回出去 在函数对象里面使用了fn里面的局部变量
+            return fun */
+
+            return function () {
+                console.log(num);
+            }
+        }
+
+        let f = fn()
+        f()
+        // 所以闭包的作用就是：延伸了变量的作用范围
+    </script>
+
+</body>
+
+</html>

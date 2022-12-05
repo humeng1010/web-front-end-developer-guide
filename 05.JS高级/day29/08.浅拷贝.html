@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var obj = {
+            id: 1,
+            name: 'andy',
+            msg: {
+                age: 18
+            }
+        }
+        // console.log(obj);
+        var o = {}
+
+        for (const key in obj) {
+            o[key] = obj[key]
+        }
+        console.log(o);
+        obj.msg.age = 21
+        console.log(o);
+        // chrome的控制台出于性能考虑，对于引用类型的数据读取是存在延迟的；
+        // 控制台默认值读取第一层数据，当你点击展开时，才会重新去堆内存中读取属性值和下一层的数据。
+        // 这种出于性能优化会让我们觉得console.log 是异步的。
+        // 所以console.log到底是同步还是异步的，答案肯定是同步。
+
+        console.log('===============');
+        // ES6语法Object中assign方法实现了浅拷贝
+        var oo = {}
+        Object.assign(oo, obj)
+        console.log(oo);
+
+
+    </script>
+
+</body>
+
+</html>
