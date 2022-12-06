@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 只要包含abc都是true
+        var reg1 = /abc/
+        console.log(reg1.test('abc'));
+        console.log(reg1.test('abcd'));
+        console.log(reg1.test('aabcd'));
+        console.log('---------------');
+        // 1. ^abc 以abc开头
+        var reg2 = /^abc/
+        console.log(reg2.test('abc'));
+        console.log(reg2.test('abcd'));
+        console.log(reg2.test('aabcd'));
+        console.log('---------------');
+        // 2. ^abc$ 以abc开头 并且以abc结尾
+        var reg3 = /^abc$/
+        console.log(reg3.test('abc'));
+        console.log(reg3.test('abcd'));
+        console.log(reg3.test('aabcd'));
+    </script>
+
+</body>
+
+</html>

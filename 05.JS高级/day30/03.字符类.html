@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 字符类 [] 表示可以有一些列的字符提供选择 只需要匹配其中的一个就可以了
+        var reg1 = /[abc]/
+        console.log(reg1.test('andy'));
+        console.log(reg1.test('baby'));
+        console.log(reg1.test('color'));
+        console.log(reg1.test('red'));
+        console.log('--------------');
+
+        // 三选一 只有是a或者b或者c才是true
+        var reg2 = /^[abc]$/
+        console.log(reg2.test('a'));
+        console.log(reg2.test('b'));
+        console.log(reg2.test('c'));
+        console.log(reg2.test('d'));
+        console.log('--------------');
+        // 表示小写的a到z都是true
+        var reg3 = /^[a-z]$/
+        console.log(reg3.test('a'));
+        console.log(reg3.test('1'));
+        console.log(reg3.test('A'));
+        console.log('--------------');
+
+        // 字符组合
+        var reg4 = /^[a-zA-Z0-9_-]$/
+        console.log(reg4.test('a'));
+        console.log(reg4.test('A'));
+        console.log(reg4.test('1'));
+        console.log(reg4.test('_'));
+        console.log(reg4.test('-'));
+        console.log(reg4.test('@'));
+        console.log('--------------');
+
+        // 如果方括号里面有^表示取反的意思
+        var reg5 = /^[^a-zA-Z0-9_-]$/
+        console.log(reg5.test('a'));
+        console.log(reg5.test('A'));
+        console.log(reg5.test('1'));
+        console.log(reg5.test('_'));
+        console.log(reg5.test('-'));
+        console.log(reg5.test('@'));
+
+
+
+    </script>
+
+</body>
+
+</html>

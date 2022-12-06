@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // a-z A-Z 0-9 - _ 并且6到16位
+        var reg = /^[a-zA-Z0-9-_]{6,16}$/
+        console.log('abc', reg.test('abc'));
+        console.log('abc0_def', reg.test('abc0_def'));
+        console.log('andy007', reg.test('andy007'));
+    </script>
+
+</body>
+
+</html>

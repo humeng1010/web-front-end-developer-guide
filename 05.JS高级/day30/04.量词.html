@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. * 代表可以出现0次或者多次 相当于 >=0
+        var rge1 = /^a*$/
+        console.log(rge1.test(''));
+        console.log(rge1.test('a'));
+        console.log(rge1.test('aaa'));
+        console.log('-------------');
+        // 2. + 相当于 >=1
+        var rge2 = /^a+$/
+        console.log(rge2.test(''));
+        console.log(rge2.test('a'));
+        console.log(rge2.test('aaa'));
+        console.log('-------------');
+
+        // 3. ? 相当于 1||0
+        var rge3 = /^a?$/
+        console.log(rge3.test(''));
+        console.log(rge3.test('a'));
+        console.log(rge3.test('aaa'));
+        console.log('-------------');
+
+        // {3}重复3次
+        var rge4 = /^a{3}$/
+        console.log(rge4.test(''));
+        console.log(rge4.test('a'));
+        console.log(rge4.test('aaa'));
+        console.log('-------------');
+
+        // {3,} 相当于 >=3
+        var rge5 = /^a{3,}$/
+        console.log(rge5.test(''));
+        console.log(rge5.test('a'));
+        console.log(rge5.test('aaa'));
+        console.log(rge5.test('aaaa'));
+        console.log('-------------');
+
+        // {3,16} 相当于大于等于3小于等于16
+        var rge6 = /^a{3,16}$/
+        console.log(rge6.test(''));
+        console.log(rge6.test('a'));
+        console.log(rge6.test('aaa'));
+        console.log(rge6.test('aaaa'));
+        console.log(rge6.test('aaaaaaaaaaaaaaaaaaaaaaaaa'));
+        console.log('-------------');
+
+
+    </script>
+
+</body>
+
+</html>
