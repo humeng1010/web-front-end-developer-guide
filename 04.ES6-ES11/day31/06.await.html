@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 创建Promise对象
+        const p = new Promise((resolve, reject) => {
+            // resolve("用户数据")
+            reject('失败了 需要通过try catch 捕获')
+        })
+        // await 要放在 async 的函数中
+        async function main() {
+            // await 后面 一般跟上Promise对象 并且可以返回Promise成功的值 
+            // 失败 需要通过try catch 捕获
+            try {
+
+                let result = await p;
+                console.log(result);
+
+            } catch (e) {
+                // e就是失败的结果
+                console.log(e);
+            }
+        }
+
+        // 调用函数
+        main()
+
+    </script>
+
+</body>
+
+</html>

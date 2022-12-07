@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script type="module">
+        // 1.通用的导入方式
+
+        // 1.引入 m1.js模块内容
+        // import * as m1 from "./js/m1.js"
+        // console.log(m1);
+
+        // 2.引入m2.js
+        // import * as m2 from "./js/m2.js"
+        // console.log(m2);
+
+
+        // 3.引入m3.js
+        // import * as m3 from "./js/m3.js"
+        // console.log(m3);
+
+        // 2.解构赋值形式 重要
+        // 应对分别暴露
+        // import { school as s, teach } from "./js/m1.js"
+        // import { find, school } from "./js/m2.js"
+        // console.log(s);
+        // console.log(school);
+        // teach()
+        // find()
+
+        // 3.简便形式 只针对默认暴露  重要
+        // import address from './js/m3.js';
+        // console.log(address);
+
+    </script>
+
+    <script src="./js/app.js" type="module"></script>
+</body>
+
+</html>

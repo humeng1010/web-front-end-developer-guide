@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // async 函数
+        async function fn() {
+            // 返回一个字符串
+            // return '你好'
+            // 如果结果不是一个 Promise类型的对象，返回结果就是一个成功的Promise对象 结果就是返回的结果
+            /* return function data() {
+
+            } */
+
+            // 抛出错误 返回的是一个失败的Promise对象 结果就是出错的信息
+            // throw new Error('出错了')
+
+            return new Promise((resolve, reject) => {
+                resolve('成功的数据')
+                // reject('失败的信息')
+            })
+
+        }
+
+        // console.log(fn());
+        fn().then((result) => {
+            console.log(result);
+        }).catch((err) => {
+            console.warn(err);
+        });
+
+    </script>
+
+</body>
+
+</html>

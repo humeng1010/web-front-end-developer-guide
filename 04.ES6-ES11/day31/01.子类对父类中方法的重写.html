@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        class Phone {
+            constructor(brand, pirce) {
+                this.brand = brand
+                this.pirce = pirce
+            }
+            call() {
+                console.log('我可以打电话');
+            }
+        }
+
+        class smartPhone extends Phone {
+            constructor(brand, price, size) {
+                super(brand, price)
+                this.size = size
+            }
+
+            call() {
+                // super.call()
+                console.log('我可以视频通话');
+            }
+        }
+        const sPhone = new smartPhone('苹果', 8999, 6.8)
+        sPhone.call()
+    </script>
+
+</body>
+
+</html>

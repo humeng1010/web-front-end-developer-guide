@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        class Phone {
+            get price() {
+                console.log('价格属性被读取了');
+                return 111
+            }
+
+            set price(newVal) {
+                console.log('价格属性被修改了');
+            }
+        }
+
+        const phone = new Phone()
+        // console.log(phone.price);
+        phone.price = 99
+
+        console.log('==========');
+        let o1 = {
+            name: 'zs'
+        }
+        let o2 = {
+            age: 22
+        }
+        let o3 = { ...o1, ...o2 }
+        console.log(o3);
+    </script>
+
+</body>
+
+</html>
