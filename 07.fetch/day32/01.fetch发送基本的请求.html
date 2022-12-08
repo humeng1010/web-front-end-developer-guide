@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap-3.4.1-dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>fetch的基本使用</h1>
+        </div>
+
+        <button type="button" class="btn btn-primary">发送get请求(获取数据)</button>
+        <button type="button" class="btn btn-success">发送post请求(添加数据)</button>
+
+    </div>
+
+    <script>
+        const btns = document.querySelectorAll('button')
+
+        async function getPosts(id) {
+            try {
+                let ids = id === undefined ? '' : id
+
+                let response = await fetch("http://localhost:3000/posts/" + ids)
+
+                let json = await response.json()
+
+                console.log(json);
+            } catch (error) {
+                console.log(error);
+
+            }
+        }
+        btns[0].addEventListener('click', function () {
+            // 改代码为async 和 await 的方式
+            getPosts()
+            /* // 默认get请求
+            fetch("http://localhost:3000/posts").then(res => {
+                // 返回的一个响应对象 但是需要通过特定的方法获取到其中的内容
+                console.log(res);
+                // res.json() //是一个异步的操作 表示取出所有的内容 将其转换为JSON对象
+                // console.log(res.json());
+                return res.json()
+            }).then(json => {
+                // 经过res.json()处理后的数据
+                console.log(json);
+            }).catch(err => {
+                // 捕获错误信息
+                console.log(err);
+            }) */
+        })
+
+        btns[1].addEventListener('click', async function () {
+            const posts = {
+                title: "fetch真好用",
+                author: "red"
+            }
+
+            let response = await fetch('http://localhost:3000/posts', {
+                method: "POST",
+                headers: {
+                    // json类型的
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(posts)
+            })
+
+            let json = await response.json()
+
+            console.log(json);
+        })
+    </script>
+
+</body>
+
+</html>
