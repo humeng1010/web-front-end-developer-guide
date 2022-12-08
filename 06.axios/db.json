@@ -1,0 +1,54 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "title": "空中拖鞋",
+      "author": "吕德华"
+    },
+    {
+      "title": "印度飞饼",
+      "author": "吕德华",
+      "id": 4
+    },
+    {
+      "title": "印度飞饼",
+      "author": "吕德华",
+      "id": 5
+    },
+    {
+      "title": "印度飞饼",
+      "author": "吕德华",
+      "id": 6
+    },
+    {
+      "title": "印度飞饼",
+      "author": "吕德华",
+      "id": 7
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "body": "这是一条评论",
+      "postId": 2,
+      "id": 2
+    },
+    {
+      "body": "这是一条评论",
+      "postId": 2,
+      "id": 3
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

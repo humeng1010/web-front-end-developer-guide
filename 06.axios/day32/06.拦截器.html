@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.2.0/axios.js"></script>
+</head>
+
+<body>
+    <script>
+        // Promise
+        // 设置请求拦截器
+        axios.interceptors.request.use(function (config) {
+            console.log("请求拦截 成功1");
+            //config就是axios对象中的config
+            // config.params = { id: 100 };
+            return config;
+            // throw "请求出现问题";
+        }, function (error) {
+            console.log("请求拦截 失败1");
+            return Promise.reject(error);
+        });
+
+        // 设置请求拦截器
+        axios.interceptors.request.use(function (config) {
+            console.log("请求拦截 成功2");
+            config.timeout = 2000;
+            return config;
+            // throw "请求出现问题";
+        }, function (error) {
+            console.log("请求拦截 失败2");
+            return Promise.reject(error);
+        });
+
+        // 设置响应拦截器
+        axios.interceptors.response.use(function (response) {
+            console.log("响应拦截 成功1");
+            // console.log(response);
+            return response.data;
+        }, function (error) {
+            console.log("响应拦截 失败1");
+            return Promise.reject(error);
+        });
+        // 设置响应拦截器
+        axios.interceptors.response.use(function (response) {
+            console.log("响应拦截 成功2");
+            // console.log(response);
+            return response;
+        }, function (error) {
+            console.log("响应拦截 失败2");
+            return Promise.reject(error);
+        });
+        // 发送请求
+        axios({
+            method: "GET",
+            url: "http://localhost:3000/posts"
+        }).then(response => {
+            console.log("自定义回调处理成功的结果");
+            console.log(response);
+        }).catch(error => {
+            console.log(error);
+            console.log("自定义回调失败");
+        })
+
+    </script>
+
+</body>
+
+</html>

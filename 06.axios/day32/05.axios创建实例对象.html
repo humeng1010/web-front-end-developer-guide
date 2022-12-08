@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.2.0/axios.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+            创建实例对象
+        </div>
+        <button type="button" class="btn btn-primary">发送GET请求</button>
+        <button type="button" class="btn btn-danger">发送POST请求</button>
+        <button type="button" class="btn btn-success">发送PUT请求</button>
+        <button type="button" class="btn btn-warning">发送DELETE请求</button>
+    </div>
+
+    <script>
+        // 实例化axios对象的好处：当我们的数据是从多个服务端获取的时候 我们可以实例化这几个对象 而默认配置只能方便一个 实例化对象可以方便我们从多个服务端获取数据
+        const btns = document.querySelectorAll("button");
+        // 创建posts实例对象
+        const posts = axios.create({
+            baseURL: "http://localhost:3000",
+            timeout: 2000
+        });
+        // 创建comments实例对象
+        const comments = axios.create({
+            baseURL: "http://localhost:3000",//域名或者端口号不同的时候
+            timeout: 2000
+        });
+        btns[0].onclick = function () {
+            // 这里posts对象与axios对象的功能几乎是一样的
+            // posts({
+            //     url: "/posts"
+            // }).then(response => {
+            //     console.log(response);
+            // })
+            posts.get("/posts").then(response => {
+                console.log(response.data);
+            })
+
+            comments({
+                url: "/comments"
+            }).then(response => {
+                console.log(response);
+            })
+        }
+    </script>
+
+
+</body>
+
+</html>
