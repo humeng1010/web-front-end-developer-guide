@@ -1,0 +1,18 @@
+{
+  "name": "day36",
+  "version": "1.0.0",
+  "main": "01.使用dayjs对时间进行格式化.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dayjs": "^1.11.7"
+  },
+  "devDependencies": {
+    "webpack": "^5.75.0"
+  }
+}
