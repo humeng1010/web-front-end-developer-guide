@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test"></div>
+
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+
+    <script type="text/babel">
+        class Demo extends React.Component {
+            render() {
+                // ref回调函数形式中的参数可以得到当前的节点对象 currentNode
+                return (
+                    <div>
+                        <input ref={(currentNode) => { this.input1 = currentNode }} type="text" placeholder="点击按钮提示数据" />
+                        <button onClick={this.showData} style={{ margin: 10 + 'px' }}>点我提示左侧的数据</button>
+                        <input ref={c => this.input2 = c} onBlur={this.showData2} type="text" placeholder="失去焦点提示数据" />
+                    </div>
+                )
+            }
+            showData = () => {
+                console.log(this);
+                const { input1 } = this
+                alert(input1.value)
+            }
+            showData2 = () => {
+                const { input2 } = this
+                alert(input2.value)
+            }
+
+        }
+        ReactDOM.render(<Demo />, document.getElementById('test'))
+    </script>
+
+</body>
+
+</html>
