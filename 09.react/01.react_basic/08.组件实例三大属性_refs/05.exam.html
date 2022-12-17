@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test"></div>
+
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+
+    <script type="text/babel">
+
+    </script>
+    <script type='text/babel'>
+        class Demo extends React.Component {
+            // 在类中直接赋值会绑定到类的实例对象身上
+            myRef = React.createRef()
+            render() {
+                return (
+                    <div>
+                        <div>
+                            <h2>字符串形式的ref （弃用）</h2>
+                            <input ref="input1" type="text" placeholder="请输入" />
+                            <button onClick={this.showData1}>点击我弹出输入的信息</button>
+                        </div>
+                        <div>
+                            <h2>回调函数形式的ref--1（最常用）</h2>
+                            <input ref={c => this.input2 = c} type="text" placeholder="请输入" />
+                            <button onClick={this.showData2}>点击我弹出输入的信息</button>
+                        </div>
+                        <div>
+                            <h2>回调函数形式的ref--2</h2>
+                            <input ref={this.saveInput3} type="text" placeholder="请输入" />
+                            <button onClick={this.showData3}>点击我弹出输入的信息</button>
+                        </div>
+                        <div>
+                            <h2>使用React.createRef函数创建容器</h2>
+                            <input ref={this.myRef} type="text" placeholder="请输入" />
+                            <button onClick={this.showData4}>点击我弹出输入的信息</button>
+                        </div>
+                    </div>
+                )
+            }
+            showData1 = () => {
+                // console.log(this.refs);
+                const { input1 } = this.refs
+                alert(input1.value)
+            }
+            showData2 = () => {
+                const input2 = this.input2
+                alert(input2.value)
+            }
+            saveInput3 = (c) => {
+                this.input3 = c
+            }
+            showData3 = () => {
+                console.log(this);
+                const input3 = this.input3
+                alert(input3.value)
+            }
+            showData4 = () => {
+                console.log(this.myRef);
+                alert(this.myRef.current.value)
+            }
+        }
+
+        ReactDOM.render(<Demo />, document.getElementById('test'))
+    </script>
+
+
+
+
+</body>
+
+</html>
