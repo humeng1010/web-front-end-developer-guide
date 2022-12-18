@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test"></div>
+
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+
+    <script type="text/babel">
+        class Login extends React.Component {
+            // 初始化状态
+            state = {
+                username: 'root',//用户名
+                password: '',//密码
+            }
+            render() {
+                return (
+                    <form action="" onSubmit={this.handleSubmit}>
+                        用户名：<input onChange={e => this.saveFormData('username', e)} value={this.state.username} type="text" name="username" />
+                        密码：<input onChange={e => this.saveFormData('password', e)} type="password" name="password" />
+                        <button>提交</button>
+                    </form>
+                )
+            }
+            handleSubmit = (event) => {
+                // 阻止表单的默认提交
+                event.preventDefault();
+                const { username, password } = this.state
+                alert(`您输入的用户名是${username}，密码是${password}`)
+            }
+            saveFormData = (dataType, e) => {
+                this.setState({ [dataType]: e.target.value })
+            }
+
+        }
+
+        ReactDOM.render(<Login />, document.getElementById('test'))
+    </script>
+
+</body>
+
+</html>
