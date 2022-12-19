@@ -29,3 +29,13 @@
     - 10.react中收集表单数据
 
     - 11.组件的生命周期
+
+- 04 (第39天)
+
+    - 12.DOM的Diffing算法
+
+    - 01.脚手架初始文件
+
+    - 02.src_hello_react
+
+    - 03_src_todoList
