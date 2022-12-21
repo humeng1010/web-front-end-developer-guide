@@ -94,7 +94,7 @@
                         )
                     }
                 }
-              
+                
                 ```
             - 在需要传递数据的组件中发布消息，如下代码
 
@@ -136,5 +136,248 @@
       
     - 07_src_github搜索案例fetch(了解fetch技术也可以发送ajax请求)
 
+- 06 (第41天)
 
-​    
+    - 08路由的基本使用 (Link编写路由链接 和 Route注册路由的使用)
+    
+    - 09NavLink的使用 (激活状态的Link的类名指定样式默认类名是active，可以使用activeClassName自定义激活状态的类名)
+    
+    - 10封装NavLink (二次封装，方便使用)
+    
+    - 11Switch的使用 (提高匹配效率，只要匹配上就不会继续向下匹配，单一匹配)
+    
+    - 12解决多级结构刷新页面样式丢失问题 (本质是css文件的路径找不到会触发路由的兜底方案：返回首页。三种解决方案：1、引入的时候不要加`.` 2、使用`%PUBLIC_URL%` 3、使用HashRouter路由)
+    
+    - 13精准匹配与严格匹配 (如果不开启没有问题则不开，Route的exact属性开启后可能导致无法访问多级路由)
+    
+    - 14Redirect的使用 (兜底的路由需要写在路由最下面，当上面的路由都匹配不上就会到to属性指定的路径)
+    
+    - 15嵌套路由的使用 (路由里面继续编写路由链接和注册路由，注意路径需要写全，路径会从最外侧注册的路由进行匹配，所以如果开启了严格匹配，多级路由在第一层没有匹配的则不会继续向第二层进行匹配)
+    
+    - 16向路由组件传递params参数 
+
+      ```jsx
+            {/* 编写路由链接并且传递params参数的值 */}
+            <Link to={`/home/message/detail/${msg.id}/${msg.title}`}>{msg.title}</Link>
+            {/* 注册路由并且声明params的变量，注意是对应的关系 */}
+            <Route path="/home/message/detail/:id/:title" component={Detail}></Route>
+                        
+            // 从Detail路由组件上的this.props.match.params获取参数
+      			const { id, title } = this.props.match.params
+      ```
+    
+      
+    
+    - 17向路由组件传递search参数
+    
+      ```jsx
+      {/* 编写路由链接并且传递search参数 */}
+      <Link to={`/home/message/detail/?id=${msg.id}&title=${msg.title}`}>{msg.title}</Link>
+      {/* 注册路由 注意 search参数无需声明接收 */}
+      <Route path="/home/message/detail" component={Detail}></Route>
+      
+      // 获取search字符串
+      let { search } = this.props.location
+      // 第三方库 import qs from 'qs'
+      const res = qs.parse(search.slice(1))
+      ```
+    
+      
+    
+    - 18向路由组件传递state参数
+    
+      ```jsx
+      {/* 编写路由链接并且传递state参数(注意这个state就是个属性，根组件的state没有任何关系) */}
+      <Link to={{ pathname: '/home/message/detail', state: { id: msg.id, title: msg.title } }}>{msg.title}</Link>
+      {/* 注册路由 注意 state参数无需声明接收 */}
+      <Route path="/home/message/detail" component={Detail}></Route>
+      
+      // 获取state参数
+      // 连续解构赋值获取 后面的或空对象是指如果没有了缓存和历史记录那么location对象上就没有state对象
+      // 则state对象为undefined 从undefined身上解构赋值取不到值 则会报错
+      const { id, title } = this.props.location.state || {}
+      ```
+    
+      
+    
+    - 19push与replace (浏览器的历史记录是栈结构push会向栈顶添加一条记录，replace会把当前处于的位置的记录替换掉)
+    
+      ```jsx
+      {/* 添加replace属性 */}
+      <Link replace to={{ pathname: '/home/message/detail', state: { id: msg.id, title: msg.title } }}>{msg.title}</Link>
+      ```
+    
+      
+    
+    - 20编程式路由导航
+    
+      ```jsx
+      // 编程式实现replace跳转+携带params参数
+      this.props.history.replace(`/home/message/detail/${id}/${title}`)
+      // replace跳转实现query参数
+      this.props.history.replace(`/home/message/detail?id=${id}&title=${title}`)
+      // replace跳转实现state参数
+      this.props.history.replace(`/home/message/detail`, { id, title })
+      
+      // 编程式实现push跳转+携带params参数
+      this.props.history.push(`/home/message/detail/${id}/${title}`)
+      // push跳转实现query参数
+      this.props.history.push(`/home/message/detail?id=${id}&title=${title}`)
+      // push跳转实现state参数
+      this.props.history.push(`/home/message/detail`, { id, title })
+      
+      // 后退
+      this.props.history.goBack()
+      // 前进
+      this.props.history.goForward()
+      // 指定前进或者后退几步
+      this.props.history.go(-2)
+      ```
+    
+      
+    
+    - 21withRouter的使用(withRouter可以加工一般组件，让一般组件具备路由组件所持有的API。withRouter的返回值是一个新组件，只不过身上有路由组件特有的api)
+    
+      ```jsx
+      import React, { Component } from 'react'
+      // 引入withRouter
+      import { withRouter } from 'react-router-dom'
+      
+      class Header extends Component {
+          back = () => {
+              this.props.history.goBack()
+          }
+          forWard = () => {
+              this.props.history.goForward()
+          }
+      
+          render() {
+              return (
+                  <div className="row">
+                  		<h2>React Router Demo</h2>
+                      <button onClick={this.back}>回退</button>
+                      <button onClick={this.forWard}>前进</button>
+                  </div>
+              )
+          }
+      }
+      // withRouter可以加工一般组件，让一般组件具备路由组件所持有的API
+      // withRouter的返回值是一个新组件，只不过身上有路由组件特有的api
+      export default withRouter(Header)
+      
+      ```
+    
+      
+    
+    - 22antd组件库的使用(首先安装 `npm i antd`,查阅文档https://ant.design/components/overview-cn/)
+    
+      ```jsx
+      import React, { Component } from 'react'
+      import { Button} from 'antd'
+      
+      export default class App extends Component {
+          render() {
+              return (
+                  <div>
+                      <Button type="primary">Primary Button</Button>
+                  </div>
+              )
+          }
+      }
+      
+      ```
+    
+    总结
+    
+    	路由的基本使用
+    			1.明确好界面中的导航区、展示区
+    			2.导航区的a标签改为Link标签
+    						<Link to="/xxxxx">Demo</Link>
+    			3.展示区写Route标签进行路径的匹配
+    						<Route path='/xxxx' component={Demo}/>
+    			4.<App>的最外侧包裹了一个<BrowserRouter>或<HashRouter>
+    	路由组件与一般组件
+    			1.写法不同：
+    						一般组件：<Demo/>
+    						路由组件：<Route path="/demo" component={Demo}/>
+    			2.存放位置不同：
+    						一般组件：components
+    						路由组件：pages
+    			3.接收到的props不同：
+    						一般组件：写组件标签时传递了什么，就能收到什么
+    						路由组件：接收到三个固定的属性
+    											history:
+    														go: ƒ go(n)
+    														goBack: ƒ goBack()
+    														goForward: ƒ goForward()
+    														push: ƒ push(path, state)
+    														replace: ƒ replace(path, state)
+    											location:
+    														pathname: "/about"
+    														search: ""
+    														state: undefined
+    											match:
+    														params: {}
+    														path: "/about"
+    														url: "/about"
+    	NavLink与封装NavLink
+    			1.NavLink可以实现路由链接的高亮，通过activeClassName指定样式名
+    	Switch的使用
+    			1.通常情况下，path和component是一一对应的关系。
+    			2.Switch可以提高路由匹配效率(单一匹配)。
+    	解决多级路径刷新页面样式丢失的问题
+    			1.public/index.html 中 引入样式时不写 ./ 写 / （常用）
+    			2.public/index.html 中 引入样式时不写 ./ 写 %PUBLIC_URL% （常用）
+    			3.使用HashRouter
+    	路由的严格匹配与模糊匹配
+    			1.默认使用的是模糊匹配（简单记：【输入的路径】必须包含要【匹配的路径】，且顺序要一致）
+    			2.开启严格匹配：<Route exact={true} path="/about" component={About}/>
+    			3.严格匹配不要随便开启，需要再开，有些时候开启会导致无法继续匹配二级路由
+    	Redirect的使用
+    			1.一般写在所有路由注册的最下方，当所有路由都无法匹配时，跳转到Redirect指定的路由
+    			2.具体编码：
+    						<Switch>
+    							<Route path="/about" component={About}/>
+    							<Route path="/home" component={Home}/>
+    							<Redirect to="/about"/>
+    						</Switch>
+    	嵌套路由
+    			1.注册子路由时要写上父路由的path值
+    			2.路由的匹配是按照注册路由的顺序进行的
+    	向路由组件传递参数
+    			1.params参数
+    							路由链接(携带参数)：<Link to='/demo/test/tom/18'}>详情</Link>
+    							注册路由(声明接收)：<Route path="/demo/test/:name/:age" component={Test}/>
+    							接收参数：this.props.match.params
+    			2.search参数
+    							路由链接(携带参数)：<Link to='/demo/test?name=tom&age=18'}>详情</Link>
+    							注册路由(无需声明，正常注册即可)：<Route path="/demo/test" component={Test}/>
+    							接收参数：this.props.location.search
+    							备注：获取到的search是urlencoded编码字符串，需要借助querystring解析
+    			3.state参数
+    							路由链接(携带参数)：<Link to={{pathname:'/demo/test',state:{name:'tom',age:18}}}>详情</Link>
+    							注册路由(无需声明，正常注册即可)：<Route path="/demo/test" component={Test}/>
+    							接收参数：this.props.location.state
+    							备注：刷新也可以保留住参数
+    	编程式路由导航
+    			借助this.prosp.history对象上的API对操作路由跳转、前进、后退
+    							-this.prosp.history.push()
+    							-this.prosp.history.replace()
+    							-this.prosp.history.goBack()
+    							-this.prosp.history.goForward()
+    							-this.prosp.history.go()
+    	BrowserRouter与HashRouter的区别
+    			1.底层原理不一样：
+    						BrowserRouter使用的是H5的history API，不兼容IE9及以下版本。
+    						HashRouter使用的是URL的哈希值。
+    			2.path表现形式不一样
+    						BrowserRouter的路径中没有#,例如：localhost:3000/demo/test
+    						HashRouter的路径包含#,例如：localhost:3000/#/demo/test
+    			3.刷新后对路由state参数的影响
+    						(1).BrowserRouter没有任何影响，因为state保存在history对象中。
+    						(2).HashRouter刷新后会导致路由state参数的丢失！！！
+    			4.备注：HashRouter可以用于解决一些路径错误相关的问题。
+    
+- 07 (第42天)
+
+    - 
