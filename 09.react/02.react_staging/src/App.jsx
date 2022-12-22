@@ -24,7 +24,7 @@ export default class App extends Component {
                 <br />
                 <DatePicker onChange={this.onChange} />
                 <Space direction="vertical" size={12}>
-                    <RangePicker showTime />
+                    <RangePicker showTime onChange={this.onChange} />
                 </Space>
             </div>
         )
