@@ -380,4 +380,124 @@
     
 - 07 (第42天)
 
-    - 
+    - 01_src_纯react版求和案例
+
+    - 02_src_redux精简版
+
+      ```
+      (1).去除Count组件自身的状态
+      	(2).src下建立:
+      					-redux
+      						-store.js
+      						-count_reducer.js
+      
+      	(3).store.js：
+      				1).引入redux中的createStore函数，创建一个store
+      				2).createStore调用时要传入一个为其服务的reducer
+      				3).记得暴露store对象
+      
+      	(4).count_reducer.js：
+      				1).reducer的本质是一个函数，接收：preState,action，返回加工后的状态
+      				2).reducer有两个作用：初始化状态，加工状态
+      				3).reducer被第一次调用时，是store自动触发的，
+      								传递的preState是undefined,
+      								传递的action是:{type:'@@REDUX/INIT_a.2.b.4}
+      
+      	(5).在index.js中监测store中状态的改变，一旦发生改变重新渲染<App/>
+      			备注：redux只负责管理状态，至于状态的改变驱动着页面的展示，要靠我们自己写。
+      ```
+    
+    - 03_src_redux完整版
+    
+      ```
+      新增文件：
+      		1.count_action.js 专门用于创建action对象
+      		2.constant.js 放置容易写错的type值
+      ```
+    
+      
+    
+    - 04_src_异步action版
+    
+      ```
+      	 (1).明确：延迟的动作不想交给组件自身，想交给action
+      	 (2).何时需要异步action：想要对状态进行操作，但是具体的数据靠异步任务返回。
+      	 (3).具体编码：
+      	 			1).npm i redux-thunk，并配置在store中
+      	 			2).创建action的函数不再返回一般对象，而是一个函数，该函数中写异步任务。
+      	 			3).异步任务有结果后，分发一个同步的action去真正操作数据。
+      	 (4).备注：异步action不是必须要写的，完全可以自己等待异步任务的结果了再去分发同步action。
+      ```
+    
+      ```js
+      /* 
+          该文件专门用于暴露一个store对象，整个应用只有一个store
+       */
+      // 引入legacy_createStore，专门用于创建redux中最为核心的store对象
+      import { legacy_createStore as createStore, applyMiddleware } from 'redux'
+      // 引入为Count组件服务的reducer
+      import countReducer from './count_reducer'
+      
+      // 引入redux-thunk，用于支持异步action(即action是一个函数)
+      import thunk from 'redux-thunk'
+      
+      export default createStore(countReducer, applyMiddleware(thunk))
+      ```
+    
+      ```js
+      /* 
+      为count组件生成action对象
+      */
+      import { INCREMENT, DECREMENT } from './constant'
+      
+      //同步的action就是指action的值是一个对象 
+      export const createIncrementAction = (data) => ({ type: INCREMENT, data })
+      
+      export const createDecrementAction = (data) => ({ type: DECREMENT, data })
+      
+      // 异步action就是指action的值是一个函数，
+      // 然后我们引入redux-thunk中间件并且使用后，store就会帮我们调用这个函数
+      // 异步action中一般都会调用同步action
+      
+      // 模拟一个场景，如果我们去饭店吃饭，点了饭没有说什么时候要(相当于action就是一个对象)，老板(store)就会直接让厨师(reducer)干活
+      // 如果老板这里有了VIP服务(store使用了thunk中间件)，那么老板(store)可以接收顾客的预约(action是一个函数)，
+      // 老板对这个预约计时(store会执行这个函数，等异步任务完成后，再通知厨师干活)
+      export const createIncrementAsyncAction = (data, delay) => {
+          return (dispatch) => {
+              setTimeout(() => {
+                  // store.dispatch({ type: INCREMENT, data })
+                  dispatch(createIncrementAction(data))
+              }, delay);
+          }
+      }
+      ```
+    
+      ```js
+      /* 
+      该模块是用于定义action对象中的type类型的常量值
+      */
+      export const INCREMENT = 'increment'
+      export const DECREMENT = 'decrement'
+      ```
+    
+      ```js
+      import { INCREMENT, DECREMENT } from './constant'
+      
+      const initState = 0
+      export default function countReducer(preState = initState, action) {
+          // console.log(preState, action)
+          const { type, data } = action
+      
+          switch (type) {
+              case INCREMENT:
+                  return preState + data
+              case DECREMENT:
+                  return preState - data
+              default:
+                  return preState
+          }
+      
+      }
+      ```
+    
+      
