@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 
 // 引入create_action
 import {
-    increment,
-    decrement,
-    incrementAsync
+    createIncrementAction,
+    createDecrementAction,
+    createIncrementAsyncAction
 } from '../../redux/actions/count'
 
 import React, { Component } from 'react'
@@ -13,21 +13,21 @@ import React, { Component } from 'react'
 class Count extends Component {
     increment = () => {
         const { value } = this.selectNumber
-        this.props.increment(value * 1)
+        this.props.add(value * 1)
     }
     decrement = () => {
         const { value } = this.selectNumber
-        this.props.decrement(value * 1)
+        this.props.sub(value * 1)
     }
     incrementIfOdd = () => {
         const { value } = this.selectNumber
         if (this.props.count % 2 !== 0) {
-            this.props.increment(value * 1)
+            this.props.add(value * 1)
         }
     }
     incrementAsync = () => {
         const { value } = this.selectNumber
-        this.props.incrementAsync(value * 1, 500)
+        this.props.addAsync(value * 1, 500)
 
 
     }
@@ -52,11 +52,11 @@ class Count extends Component {
 
 export default connect(
     // mapStateToProps
-    state => ({ count: state.count, persons: state.person }),
+    state => ({ count: state.count, persons: state.persons }),
     // mapDispatchToProps的简写方式——>直接写成对象 内部会自动调用dispatch，无序我们手动调用
     {
-        increment,
-        decrement,
-        incrementAsync
+        add: createIncrementAction,
+        sub: createDecrementAction,
+        addAsync: createIncrementAsyncAction
     }
 )(Count)
