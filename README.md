@@ -93,3 +93,5 @@ hello，首先做个自我介绍，本人是一位在校大学生，首先我是
 - 2022年12月22日：6个小时-Redux的使用
 
 - 2022年12月23日：7个小时-react-redux的使用
+
+- 2022年12月24日：6个小时-react的扩展(setState的两种写法,路由组件的懒加载,3种hook,Fragment标签,PureComponent优化各个组件的render,renderProps组件插槽,ErrorBoundary错误边界防止整个页面不能显示)
