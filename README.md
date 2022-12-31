@@ -97,3 +97,5 @@ hello，首先做个自我介绍，本人是一位在校大学生，首先我是
 - 2022年12月24日：6个小时-react的扩展(setState的两种写法,路由组件的懒加载,3种hook,Fragment标签,PureComponent优化各个组件的render,renderProps组件插槽,ErrorBoundary错误边界防止整个页面不能显示)
 
 - 2022年12月25日：4个小时-react-route@6版本的学习
+
+- 2022年12月31日：1个小时-初识Vue
