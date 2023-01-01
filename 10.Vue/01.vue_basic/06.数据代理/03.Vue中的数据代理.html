@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2>学校名称：{{name}}</h2>
+        <h2>学校地址：{{address}}</h2>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false
+
+        const vm = new Vue({
+            el: '#root',
+            data() {
+                // 在这个地方写的data会被Vue中的_data = data()并且做了数据劫持，之后又通过数据代理把_data中的数据添加到vm实例身上，方便程序员使用
+                return {
+                    name: '尚硅谷',
+                    address: '北京',
+                }
+            },
+        })
+    </script>
+
+
+</body>
+
+</html>
