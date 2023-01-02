@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2>今天天气很{{info}}</h2>
+        <button @click="changeWeather">切换</button>
+        <hr>
+        <h3>a的值是：{{numbers.a}}</h3>
+        <button @click="numbers.a++">点我让a+1</button>
+        <hr>
+        <h3>b的值是：{{numbers.b}}</h3>
+        <button @click="numbers.b++">点我让b+1</button>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false
+        const vm = new Vue({
+            el: '#root',
+            data() {
+                return {
+                    isHot: true,
+                    numbers: {
+                        a: 1,
+                        b: 1
+                    }
+                }
+            },
+            watch: {
+                isHot: {
+                    // 初始化时让handler立即执行一下
+                    immediate: true,
+                    // handler什么时候调用？当isHot函数发生改变时
+                    handler(newValue, oldValue) {
+                        console.log('isHot被修改了', newValue, oldValue)
+                    }
+                },
+                // 监视多级结构中某个属性的变化
+                'numbers.a': {
+                    handler() {
+                        console.log('a被修改了')
+                    }
+                },
+                // 监视整个numbers中所有的属性
+                numbers: {
+                    // 开启深度监视
+                    deep: true,
+                    handler() {
+                        console.log('numbers改变了')
+                    }
+                }
+            },
+            methods: {
+                changeWeather() {
+                    this.isHot = !this.isHot
+                }
+            },
+            computed: {
+                info() {
+                    return this.isHot ? '炎热' : '凉爽'
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

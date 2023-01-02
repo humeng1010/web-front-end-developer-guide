@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2>人员列表</h2>
+        <button @click="add">点击我添加老刘</button>
+        <ul>
+            <li v-for="(person,index) in persons" :key="person.id">
+                {{person.name}}-{{person.age}}
+                <input type="text">
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#root',
+            data() {
+                return {
+                    persons: [
+                        { id: '001', name: '张三', age: 20 },
+                        { id: '002', name: '李四', age: 21 },
+                        { id: '003', name: '王五', age: 22 },
+                    ]
+                }
+            },
+            methods: {
+                add() {
+                    const p = { id: '004', name: '老刘', age: 30 }
+                    this.persons.unshift(p)
+                    // this.persons = [p, ...this.persons]
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

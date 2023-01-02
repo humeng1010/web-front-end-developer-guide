@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .basic {
+            width: 400px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+
+        .normal {
+            background-color: skyblue;
+        }
+
+        .happy {
+            background-color: pink;
+        }
+
+        .sad {
+            background-color: green;
+        }
+
+        .it1 {
+            font-size: 20px;
+        }
+
+        .it2 {
+            border: 10px solid orange;
+        }
+
+        .it3 {
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <!-- 绑定class样式：字符串写法，适用于：样式的类名不确定需要动态指定 -->
+        <div class="basic" :class="mood" @click="changeMood">{{name}}</div>
+        <!-- 绑定class样式：数组写法，适用于：绑定的样式个数不确定，名字也不确定 -->
+        <div class="basic" :class="classArr">{{name}}</div>
+        <!-- 绑定class样式：对象写法，适用于：样式的个数和类名确定，但是要动态决定使用 -->
+        <div class="basic" :class="classObj">{{name}}</div>
+
+
+        <!-- 绑定style样式：对象写法 -->
+        <div class="basic" :style="styleObj">{{name}}</div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#root',
+            data() {
+                return {
+                    name: 'Vue',
+                    mood: 'normal',
+                    classArr: ['it1', 'it2', 'it3'],
+                    classObj: {
+                        it1: true,
+                        it2: true,
+                        it3: true
+                    },
+                    styleObj: { fontSize: '40px' }
+                }
+            },
+            methods: {
+                changeMood() {
+                    const arr = ['happy', 'sad', 'normal']
+                    const index = Math.floor(Math.random() * 3)
+                    this.mood = arr[index]
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
