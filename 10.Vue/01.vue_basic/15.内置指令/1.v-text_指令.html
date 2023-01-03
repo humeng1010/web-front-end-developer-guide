@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        向其所在的节点中渲染文本内容，且不会解析html标签，并且替换掉原本的内容
+     -->
+    <div id="root">
+        <div>你好,{{name}}</div>
+        <div v-text="name"></div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#root',
+            data() {
+                return {
+                    name: '<h1>abc</h1>'
+                }
+            },
+        })
+    </script>
+
+</body>
+
+</html>

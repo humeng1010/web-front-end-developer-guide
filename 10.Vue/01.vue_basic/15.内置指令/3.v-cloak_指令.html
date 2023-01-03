@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 含有这个属性的标签都隐藏，当经过Vue解析后会自动去掉该属性 */
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        v-cloak指令可以解决当用户网速慢的时候，防止未经Vue解析的模板显示在页面上
+        vue实例创建完毕并接管容器的时候，会删掉该属性
+    -->
+    <div id="root">
+        <h2 v-cloak>{{name}}</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        setTimeout(() => {
+            new Vue({
+                el: '#root',
+                data() {
+                    return {
+                        name: '尚硅谷'
+                    }
+                },
+            })
+        }, 3000);
+    </script>
+</body>
+
+</html>

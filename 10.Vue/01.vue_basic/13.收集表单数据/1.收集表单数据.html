@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        v-model的三个修饰符
+            1. lazy：失去焦点再收集数据
+            2. number： 输入的字符串转为有效数字
+            3. trim： 去除输入的首位空格
+     -->
+    <div id="root">
+        <form @submit.prevent="demo">
+            <label for="account">账户：</label>
+            <input type="text" id="account" v-model.trim="userInfo.account">
+            <br>
+            密码： <input type="password" v-model="userInfo.password">
+            <br>
+            年龄：<input type="number" v-model.number="userInfo.age">
+            <br>
+            性别：
+            <input type="radio" name="gender" v-model="userInfo.gender" value="male">男
+            <input type="radio" name="gender" v-model="userInfo.gender" value="female">女
+            <br>
+            爱好：
+            学习<input type="checkbox" v-model="userInfo.hobby" value="study">
+            打游戏<input type="checkbox" v-model="userInfo.hobby" value="play">
+            吃饭<input type="checkbox" v-model="userInfo.hobby" value="eat">
+            <br>
+            所属校区：
+            <select v-model="userInfo.city">
+                <option value="">请选择</option>
+                <option value="beijing">北京</option>
+                <option value="shanghai">上海</option>
+                <option value="nanjing">南京</option>
+            </select>
+            <br>
+            其他信息：
+            <textarea v-model.lazy="userInfo.other"></textarea>
+            <br>
+            <input type="checkbox" v-model="userInfo.agree">
+            阅读并接受<a href="http://www.baidu.com">《用户协议》</a>
+            <button>提交</button>
+        </form>
+    </div>
+
+    <script>
+
+        new Vue({
+            el: '#root',
+            data() {
+                return {
+                    userInfo: {
+                        account: '',
+                        password: '',
+                        age: 18,
+                        gender: 'male',
+                        hobby: [],
+                        city: 'nanjing',
+                        other: '',
+                        agree: true
+                    },
+                }
+            },
+            methods: {
+                demo() {
+                    console.log(JSON.stringify(this.userInfo))
+                }
+            },
+        })
+    </script>
+
+</body>
+
+</html>

