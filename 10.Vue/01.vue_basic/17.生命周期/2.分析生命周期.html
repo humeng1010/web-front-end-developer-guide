@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="root">
+        <h2>当前的n值为{{n}}</h2>
+        <button @click="add">点我n+1</button>
+        <button @click="bye">点我销毁vm</button>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false
+        new Vue({
+            el: '#root',
+            data() {
+                return {
+                    n: 1
+                }
+            },
+            methods: {
+                add() {
+                    this.n++
+                },
+                bye() {
+                    console.log('bye')
+                    this.$destroy()
+                }
+            },
+            // 在数据监测和数据代理创建之前
+            beforeCreate() {
+                console.log('beforeCreate')
+            },
+            // 在数据监测和数据代理创建之后
+            created() {
+                console.log('created')
+            },
+            // 挂载页面之前
+            beforeMount() {
+                console.log('beforeMount')
+            },
+            // 页面挂载完毕
+            mounted() {
+                console.log('mounted')
+            },
+            // 更新之前，数据是新的，但是页面还未来得及更新，页面和数据尚未保持同步
+            beforeUpdate() {
+                console.log('beforeUpdate')
+            },
+            // 更新之后，即数据和页面保持同步
+            updated() {
+                console.log('updated')
+            },
+            // 销毁之前
+            beforeDestroy() {
+                console.log('beforeDestroy')
+            },
+            // 销毁之后
+            destroyed() {
+                console.log('destroyed')
+            },
+        })
+    </script>
+
+</body>
+
+</html>

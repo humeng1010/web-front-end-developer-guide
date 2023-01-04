@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        关于VueComponent：
+            1. school组件的本质是一个名为VueComponent的构造函数，且不是程序员定义的，是Vue.extend生成的
+            2. 我们只需要写<school></school>,Vue解析的时候会帮我们创建school组件的实例对象
+                即Vue帮我们执行的：new VueComponent(options)
+
+            3. 特别注意：每次调用Vue.extend，返回的都是一个全新的VueComponent!!!
+            4. 关于this的指向：
+                1. 组件配置中：
+                    data函数，methods中的函数，watch中的函数，computed中的函数 他们的this均是【VueComponent实例对象】
+                2. new Vue(options)配置中：
+                    data函数，methods中的函数，watch中的函数，computed中的函数 他们的this均是【Vue实例对象】
+            5. VueComponent的实例对象，以后简称vc(也可以称为：组件实例对象)
+                Vue的实例对象，以后简称vm
+     -->
+    <div id="root">
+        <!-- 使用组件的时候，Vue会帮我们 new VueComponent -->
+        <hello></hello>
+        <school></school>
+    </div>
+
+    <script>
+        const school = Vue.extend({
+            name: 'school',
+            template: `
+            <div>
+                <div>{{name}}</div>
+                <div>{{address}}</div>
+                <button @click="showInfo">点我显示this</button>
+            </div>    
+            `,
+            data() {
+                return {
+                    name: '尚硅谷',
+                    address: '北京'
+                }
+            },
+            methods: {
+                showInfo() {
+                    console.log(this)
+                }
+            },
+
+        })
+        // 构造函数 VueComponent
+        console.log(school)
+
+        // 每次Vue.extend函数返回的都是全新的构造函数VueComponent
+        const hello = Vue.extend({
+            name: 'hello',
+            template: `
+            <div>
+                <div>{{msg}}</div>
+            </div>    
+            `,
+            data() {
+                return {
+                    msg: '你好呀'
+                }
+            },
+        })
+        // 构造函数 VueComponent
+        console.log(hello)
+
+        const vm = new Vue({
+            el: '#root',
+            components: {
+                school,
+                hello
+            }
+        })
+    </script>
+
+</body>
+
+</html>
