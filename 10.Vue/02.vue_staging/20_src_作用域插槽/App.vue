@@ -2,21 +2,21 @@
   <div class="container">
     <Category title="游戏">
       <!-- scope接收到的是一个对象，对象中含有子组件插槽传递的数据，可以使用解构赋值简便获取数据 -->
-      <template slot-scope="{ games }">
+      <template scope="{games}">
         <ul>
           <li v-for="(item, index) in games" :key="index">{{ item }}</li>
         </ul>
       </template>
     </Category>
     <Category title="游戏">
-      <template slot-scope="{ games }">
+      <template scope="{games}">
         <ol>
           <li v-for="(item, index) in games" :key="index">{{ item }}</li>
         </ol>
       </template>
     </Category>
     <Category title="游戏">
-      <template slot-scope="{ games }">
+      <template scope="{games}">
         <h4 v-for="(item, index) in games" :key="index">{{ item }}</h4>
       </template>
     </Category>

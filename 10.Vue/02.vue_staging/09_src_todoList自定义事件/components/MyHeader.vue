@@ -13,7 +13,7 @@
 import { nanoid } from "nanoid";
 export default {
   name: "MyHeader",
-  props: ["addTodo"],
+  // props: ["addTodo"],
   data() {
     return {
       title: "",
@@ -30,7 +30,8 @@ export default {
         done: false,
       };
       // 向App组件传递todoObj参数，通知App组件添加一个todoObj
-      this.addTodo(todoObj);
+      // 使用emit触发自定义事件
+      this.$emit("addTodo", todoObj);
       // 清空输入
       this.title = "";
     },
