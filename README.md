@@ -59,3 +59,4 @@ hello，首先做个自我介绍，本人是一位在校大学生，首先我是
 - 2023年01月04日：8个小时-vue的生命周期，非单文件组件和单文件组件，vue脚手架创建项目，ref，props，mixin，plugins，scoped，todolist案例
 - 2023年01月05日：6个小时-vue组件自定义事件，全局事件总线，pubsub，nextTick，过渡动画，配置代理服务器，github搜索案例，默认插槽、具名插槽、作用域插槽
 - 2023年01月06日：10个小时-vuex和vue-router
+- 2023年01月07日：7个小时-vue3-setup组合 api 的舞台、ref 函数实现数据响应式返回 RefImpl、reactive 函数实现对象响应式返回 Proxy、vue3 的响应式原理通过 Proxy 和 Reflect 两个原生方法实现、setup 接收的两个参数 props 和 context、computed 计算属性api、watch 函数 api 多种写法注意区别、watch 时的 value 问题本质是监视的是什么类型的 RefImpl 需要 value 或者开启 deep 而 Proxy 不需要 value 并且强制深度监视、watchEffect 类似计算属性但无需返回值会根据回调函数中变化的值重新执行该函数、生命周期 onBefore...和on...ed、hooks 类似 mixin把组合 api 进行封装方便多次使用。
