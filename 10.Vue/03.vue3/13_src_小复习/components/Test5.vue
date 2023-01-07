@@ -1,15 +1,14 @@
 <template>
-  <h1>我是 Test 组件</h1>
-  <h2>当前点击时鼠标的坐标为:x:{{ point.x }},y:{{ point.y }}</h2>
+  <h1>hooks</h1>
+  <p>当前鼠标位置:{x:{{ point.x }},y:{{ point.y }} }</p>
 </template>
 
 <script>
 import usePonit from "../hooks/usePonit";
 export default {
-  name: "Test",
+  name: "Test5",
   setup() {
     const point = usePonit();
-
     return {
       point,
     };
