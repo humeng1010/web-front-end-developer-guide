@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let person = {
+            name: '张三',
+            age: 18
+        }
+        //#region
+        // 模拟vue2 中实现响应式
+        /* let p = {}
+        Object.defineProperty(p, 'name', {
+            configurable: true,
+            get() {
+                return person.name
+            },
+            set(value) {
+                console.log("有人修改了name 属性,我发现了,我需要更新页面")
+                person.name = value
+            }
+        })
+        Object.defineProperty(p, 'age', {
+            configurable: true,
+            get() {
+                return person.age
+            },
+            set(value) {
+                console.log("有人修改了age 属性,我发现了,我需要更新页面")
+                person.age = value
+            }
+        }) */
+        //#endregion
+
+        //#region
+        // Vue3中的响应式+Reflect反射
+        const p = new Proxy(person, {
+            // 有人读取 p 的某个属性的时候调用
+            get(target, propName) {
+                console.log(`有人读取了p 身上的${propName}属性`)
+                return Reflect.get(target, propName)
+            },
+            // 有人修改 p 的某个属性,或者给 p 追加某个属性的时候调用
+            set(target, propName, value) {
+                console.log(`有人修改了p 身上的${propName}属性,值为${value},我要去更新页面了`)
+                Reflect.set(target, propName, value)
+            },
+            // 有人删除 p 的某个属性时调用
+            deleteProperty(target, propName) {
+                console.log(`有人删除了p 身上的${propName}属性,我要去更新页面了`)
+                return Reflect.deleteProperty(target, propName)
+            }
+        })
+        //#endregion
+
+    </script>
+</body>
+
+</html>
