@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../pages/Home'
+/* import Home from '../pages/Home'
 import Recommend from '@/pages/Home/Recommend'
 import Hot from '@/pages/Home/Hot'
 import Study from '@/pages/Home/Study'
 import Sport from '@/pages/Home/Sport'
 import Shop from '@/pages/Shop'
 import Find from '@/pages/Find'
-import Me from '@/pages/Me'
+import Me from '@/pages/Me' */
 
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function (location) {
@@ -29,44 +29,44 @@ const router = new VueRouter({
         {
             name: 'home',
             path: '/home',
-            component: Home,
+            component: () => import(/* webpackChunkName: "group-user" */'../pages/Home'),
             children: [
                 {
                     name: "recommend",
                     path: 'recommend',
-                    component: Recommend
+                    component: () => import(/* webpackChunkName: "group-user" */'../pages/Home/Recommend')
                 },
                 {
                     name: 'hot',
                     path: 'hot',
-                    component: Hot
+                    component: () => import(/* webpackChunkName: "group-user" */'../pages/Home/Hot')
                 },
                 {
                     name: "study",
                     path: 'study',
-                    component: Study
+                    component: () => import(/* webpackChunkName: "group-user" */'../pages/Home/Study')
                 },
                 {
                     name: "sport",
                     path: 'sport',
-                    component: Sport
+                    component: () => import(/* webpackChunkName: "group-user" */'../pages/Home/Sport')
                 }
             ],
         },
         {
             name: 'shop',
             path: '/shop',
-            component: Shop
+            component: () => import(/* webpackChunkName: "group-user" */'../pages/Shop')
         },
         {
             name: 'find',
             path: '/find',
-            component: Find
+            component: () => import(/* webpackChunkName: "group-user" */'../pages/Find')
         },
         {
             name: 'me',
             path: '/me',
-            component: Me
+            component: () => import(/* webpackChunkName: "group-user" */'../pages/Me')
         }
     ]
 
