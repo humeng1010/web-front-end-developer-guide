@@ -15,12 +15,8 @@
     </div>
     <div class="col-xs-6">
       <div class="panel">
-        <div class="panel-body re">
-          <router-view v-slot="{ Component }">
-            <transition name="router">
-              <component :is="Component" />
-            </transition>
-          </router-view>
+        <div class="panel-body">
+          <router-view></router-view>
         </div>
       </div>
     </div>
@@ -35,21 +31,3 @@ export default {
   components: { TopTitle },
 };
 </script>
-
-<style scoped>
-.re {
-  position: relative;
-}
-.router-enter-from,
-.router-leave-to {
-  transform: translateX(300%);
-}
-.router-enter-active,
-.router-leave-active {
-  transition: all 1s;
-}
-.router-enter-to,
-.router-leave-from {
-  transform: translate(0);
-}
-</style>
