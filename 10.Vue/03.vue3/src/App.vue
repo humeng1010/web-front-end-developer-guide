@@ -20,16 +20,13 @@
 //静态引入
 // import Child from './components/Child'
 // 异步引入
-import { defineAsyncComponent } from 'vue'
-const Child = defineAsyncComponent(() => import('./components/Child.vue'))
+import { defineAsyncComponent } from "vue";
+const Child = defineAsyncComponent(() => import("./components/Child.vue"));
 
 export default {
   name: "App",
   components: { Child },
-
-
-}
-
+};
 </script>
 <style scoped>
 .app {
