@@ -1,0 +1,40 @@
+/* 全局样式 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    color: #d9e6eb;
+    background-color: #111827;
+}
+
+a {
+    color: #d9e6eb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn {
+    width: 8rem;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    font-size: 1.2rem;
+    border-radius: .375rem;
+    cursor: pointer;
+}
+
+.btn-primary {
+    color: #111827;
+    background-color: #d1473a;
+}
+
+.btn-primary:hover {
+    background-color: #ff5949;
+}
