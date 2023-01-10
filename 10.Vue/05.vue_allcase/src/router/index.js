@@ -11,11 +11,17 @@ const router = createRouter({
         },
         {
             path: '/basics',
-            component: Basics
+            component: Basics,
+            meta: {
+                showMenu: true
+            }
         },
         {
             path: '/basics-js',
             component: BasicsJS,
+            meta: {
+                showMenu: true
+            }
         }
     ]
 })

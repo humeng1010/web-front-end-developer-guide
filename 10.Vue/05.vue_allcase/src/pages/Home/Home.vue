@@ -11,8 +11,21 @@
                     <router-link to="/basics-js" class="btn btn-primary">JS</router-link>
                 </div>
             </div>
-            <div class="section">Second section ...</div>
-            <div class="section">Second section ...</div>
+            <div class="section">
+                <div class="page2">
+                    <h1 class="main-title">Pomelo</h1>
+                    <h1 class="main-title text-primary">柚子</h1>
+                    <p>柚子的果语和寓意是代表着吉祥，柚子的“柚”和庇佑的“佑”同音，柚子即佑子，被人们认为有吉祥保佑的含义</p>
+                    <p></p>
+                </div>
+            </div>
+            <div class="section page3">
+                <h3>
+                    github主页:
+                    <br>
+                    <br> <a href="https://github.com/redyouzi">https://github.com/redyouzi</a>
+                </h3>
+            </div>
         </full-page>
 
     </div>
@@ -51,22 +64,30 @@ export default {
 
 </script>
 
-<style lang="css" scoped>
+<style lang="less" scoped>
 .home {
     margin-top: 3.75rem;
     text-align: center;
-}
 
-.main-title {
-    font-size: 3rem;
-}
+    .page2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 50vh;
+    }
 
-.entry {
-    display: flex;
-    justify-content: center;
-}
+    .main-title {
+        font-size: 3rem;
+    }
 
-.entry>.btn {
-    margin: 1.25rem;
+    .entry {
+        display: flex;
+        justify-content: center;
+
+        .btn {
+            margin: 1.25rem;
+        }
+    }
+
 }
 </style>

@@ -10,6 +10,54 @@ html {
     font-size: 16px;
 }
 
+/* 小于 720px */
+@media screen and (max-width: 719px) {
+
+    .main {
+        left: 0rem;
+    }
+
+    /* 把侧边栏隐藏 */
+    .menu {
+        transform: translateX(-100%);
+    }
+
+    .nav-bar {
+        justify-content: center !important;
+    }
+
+    .nav-bar>.links {
+        display: none !important;
+    }
+
+
+}
+
+/* 大于 720px */
+@media screen and (min-width: 720px) {
+    .main {
+        left: 16.4rem;
+    }
+
+    .menu {
+        width: 16.4rem;
+        transform: translateX(0);
+    }
+}
+
+/* 大于 960px */
+@media screen and (min-width: 960px) {
+    .main {
+        left: 20rem;
+    }
+
+    .menu {
+        width: 20rem;
+    }
+}
+
+
+
 body {
     color: #d9e6eb;
     background-color: #111827;
@@ -37,4 +85,8 @@ a {
 
 .btn-primary:hover {
     background-color: #ff5949;
+}
+
+.text-primary {
+    color: #d1473a;
 }

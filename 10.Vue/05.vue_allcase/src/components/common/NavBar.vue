@@ -1,10 +1,10 @@
 <template>
     <div class="nav-bar">
         <a href="/" class="logo">
+            <img src="../../assets/logo.png" alt="logo">
             Pomelo
         </a>
         <div class="links">
-            <div class="search">搜索🔍</div>
             <div class="nav-links">
                 <div class="nav-item">
                     <router-link to="/basics" class="nav-link">
@@ -15,11 +15,6 @@
                     <router-link to="/basics-js" class="nav-link">
                         JS基础
                     </router-link>
-                </div>
-                <div class="nav-item">
-                    <a href="#" class="nav-link">
-                        JS高级
-                    </a>
                 </div>
                 <div class="nav-item">
                     <a href="#" class="nav-link">
@@ -36,11 +31,12 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
+
 
 </script>
 
-<style lang="css" scoped>
+<style lang="less" scoped>
 .nav-bar {
     position: fixed;
     top: 0;
@@ -57,41 +53,48 @@
     border-bottom: .0625rem solid rgba(84, 84, 88, .48);
 
     background-color: #111827;
-}
 
-.logo {
-    font-size: 1.5rem;
-    transition: color .5s;
-}
+    .logo {
+        display: flex;
+        font-size: 1.5rem;
+        height: 3.125rem;
+        align-items: center;
+        transition: color .5s;
 
-.logo:hover {
-    color: orange;
-}
+        img {
+            height: 100%;
+        }
 
-.links {
-    display: flex;
-    align-items: center;
-}
+        &:hover {
+            color: orange;
+        }
+    }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-}
+    .links {
+        display: flex;
+        align-items: center;
 
-.nav-links .nav-item {
-    padding: .625rem 1.25rem;
-}
+        .nav-links {
+            display: flex;
+            align-items: center;
 
-.nav-link {
-    display: block;
-    height: 1.875rem;
-    line-height: 1.875rem;
-    font-weight: 500;
-    border-bottom: .125rem solid transparent;
-    transition: border .3s;
-}
+            .nav-item {
+                padding: .625rem 1.25rem;
 
-.nav-link:hover {
-    border-bottom: .125rem solid orange;
+                .nav-link {
+                    display: block;
+                    height: 1.875rem;
+                    line-height: 1.875rem;
+                    font-weight: 500;
+                    border-bottom: .125rem solid transparent;
+                    transition: border .3s;
+
+                    &:hover {
+                        border-bottom: .125rem solid orange;
+                    }
+                }
+            }
+        }
+    }
 }
 </style>
