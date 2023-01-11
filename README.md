@@ -63,3 +63,4 @@ hello，首先做个自我介绍，本人是一位在校大学生，首先我是
 - 2023年01月08日：7个小时-vue3-toRef和 toRefs：toRef创建一个 ref 对象，其 value 值指向另一个对象中的某个属性，主要将响应式对象中的某个属性单独提供给外部使用，toRefs 可以批量创建多个ref 对象；shallowRef 和 shallowReactive：shallowRef 只处理基本类型的数据，shallowReactive 浅层次的响应式只考虑对象的第一层；shallowReadonly 和 readonly：分别是浅层次的只读和完全只读；toRaw 和 markRaw：分别是把一个响应式对象变为原始对象只能处理 reactive 缔造的对象，markRaw 是把一个原始的对象标记为原始对象即不对其进行响应式的操作；customRef：自定义 ref，定义函数该函数需要返回 customRef,并且参数是一个工厂函数，该函数可以接收到两个参数分别是追踪track 和触发trigger，该工厂函数需要返回一个对象对象中含有 getter 和 setter进行自定义 ref；provide(提供) 和 inject(注入)：适用于祖组件给后代组件传递数据；teleport传送：可以让里面的结构进行传送到指定的选择器中；Suspense：可以配合 defineAsyncComponent 引入组件进行异步渲染，并且该组件 setup 可以返回 Promise 对象了，因为使用 Suspense 进行包裹就会让 Suspense 来管理这个组件的加载。
 - 2023年01月09日：8个小时-对vue-router@4版本的变化进行了解并使用；vuex@4 版本的使用；以及了解并使用新的 Vue 的专属状态管理库Pinia。
 - 2023年01月10日：9个小时-vue3-博客文档小项目页面的基本结构的搭建;TypeScript-类型基础的学习
+- 2023年01月11日：8个小时-ts接口,函数,类,泛型的学习;webpack的第一天
