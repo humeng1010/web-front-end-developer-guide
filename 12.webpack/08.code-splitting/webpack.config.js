@@ -6,11 +6,28 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // 引入css压缩插件
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 module.exports = {
-    // 入口文件
-    entry: './src/index.js',
+    // 入口文件,配置代码分离,不过会出现重复引入,同一个库被多次打包
+    entry: {
+        // index: './src/index.js'
+        /* // 抽离模块依赖的公共模块为单独的chunk
+        index: {
+            import: './src/index.js',
+            dependOn: 'shared'
+        },
+        another: {
+            import: './src/another-module.js',
+            dependOn: 'shared'
+        },
+        shared: 'lodash' */
+        // 在optimization中配置splitChunks,自动代码分离
+        index: './src/index.js',
+        // another: './src/another-module.js'
+
+    },
     // 输出路径
     output: {
-        filename: 'bundle.js',
+        // [name]可以获取到entry中的key值 index,another
+        filename: '[name].bundle.js',
         // 必须是绝对路径,使用到了nodejs的path内置api进行路径的拼接
         path: path.resolve(__dirname, './dist'),
         // 清理上次打包生成的文件
@@ -104,6 +121,16 @@ module.exports = {
                 // 由于之前我们使用style-loader把css放到页面上
                 // 但是现在我们需要抽离css,所以style-loader就不需要了
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
             }
         ]
     },
@@ -112,7 +139,13 @@ module.exports = {
         minimizer: [
             // 配置压缩css插件
             new CssMinimizerPlugin()
-        ]
-    }
+        ],
+
+        // 自动做代码抽离
+        /* splitChunks: {
+            chunks: 'all'
+        } */
+    },
+
 
 }

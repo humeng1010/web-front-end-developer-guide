@@ -7,6 +7,9 @@ import exampleTxt from './assets/example.txt'
 import jpgMap from './assets/youzi.jpg'
 import './style.css'
 import './style.less'
+// import _ from 'lodash'
+
+import './async-module.js'
 
 helloworld()
 console.log(imgsrc)
@@ -32,3 +35,5 @@ img3.src = jpgMap
 document.body.appendChild(img3)
 
 document.body.classList.add('hello')
+
+// console.log(_.join(['index', 'module', 'loader!'], ' '))

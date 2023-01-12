@@ -1,0 +1,20 @@
+/*!**********************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./src/style.css ***!
+  \**********************************************************************************************************/
+.hello {
+  color: red;
+}
+.block-bg {
+  background-image: url(../images/c9201818dcc3e1f9c383.png) !important;
+  background-size: 20px auto !important;
+}
+
+/*!***********************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./src/style.less ***!
+  \***********************************************************************************************************/
+body {
+  background-color: pink;
+}
+
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3R5bGVzLzNhN2I3MjNmZWIxYWRiZTEwZTRhLmNzcyIsIm1hcHBpbmdzIjoiOzs7QUFBQTtFQUNFO0FBQ0Y7QUFFQTtFQUNFO0VBQ0E7QUFBRjs7Ozs7QUNKQTtFQUNJO0FBREoiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvc3R5bGUuY3NzIiwid2VicGFjazovLy8uL3NyYy9zdHlsZS5sZXNzIl0sInNvdXJjZXNDb250ZW50IjpbIi5oZWxsbyB7XG4gIGNvbG9yOiByZWQ7XG59XG5cbi5ibG9jay1iZyB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybCguL2Fzc2V0cy9sb2dvLnBuZykgIWltcG9ydGFudDtcbiAgYmFja2dyb3VuZC1zaXplOiAyMHB4IGF1dG8gIWltcG9ydGFudDtcbn0iLCJAY29sb3I6IHBpbms7XG5cbmJvZHkge1xuICAgIGJhY2tncm91bmQtY29sb3I6IEBjb2xvcjtcbn0iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=*/

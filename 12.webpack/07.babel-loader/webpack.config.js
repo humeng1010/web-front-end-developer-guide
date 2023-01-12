@@ -104,6 +104,16 @@ module.exports = {
                 // 由于之前我们使用style-loader把css放到页面上
                 // 但是现在我们需要抽离css,所以style-loader就不需要了
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
             }
         ]
     },
