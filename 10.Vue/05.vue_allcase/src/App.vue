@@ -28,6 +28,7 @@ import LeftMenu from './components/common/LeftMenu.vue'
 .main {
   position: absolute;
   top: 3.75rem;
+  padding: 20px;
   /* left: 20rem; */
   transition: all .3s;
 }

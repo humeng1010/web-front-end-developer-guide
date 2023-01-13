@@ -7,16 +7,16 @@
         <div class="links">
             <div class="nav-links">
                 <div class="nav-item">
-                    <router-link to="/basics" class="nav-link">
+                    <router-link to="/basics" class="nav-link" active-class="active">
                         前端基础
                     </router-link>
                 </div>
                 <div class="nav-item">
-                    <router-link to="/basics-js" class="nav-link">
+                    <router-link to="/basics-js" class="nav-link" active-class="active">
                         JS基础
                     </router-link>
                 </div>
-                <div class="nav-item">
+                <!-- <div class="nav-item">
                     <a href="#" class="nav-link">
                         React
                     </a>
@@ -25,6 +25,11 @@
                     <a href="#" class="nav-link">
                         Vue
                     </a>
+                </div> -->
+                <div class="nav-item">
+                    <router-link to="/vue3-case/01.setup" class="nav-link" active-class="active">
+                        Vue3案例
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -92,6 +97,10 @@
                     &:hover {
                         border-bottom: .125rem solid orange;
                     }
+                }
+
+                .active {
+                    border-bottom: .125rem solid orange;
                 }
             }
         }
