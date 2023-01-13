@@ -9,10 +9,12 @@
     "test": "vite --mode test"
   },
   "dependencies": {
+    "less": "^4.1.3",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
+    "postcss-preset-env": "^7.8.3",
     "vite": "^4.0.4"
   }
 }

@@ -1,0 +1,19 @@
+// 导入变量
+// @import url(./variable.less);
+// 局部变量
+@color-main: green;
+
+.content {
+    padding: 20px;
+    background-color: @color-content;
+
+    .main {
+        // width的新的响应式的写法,最小100px,最大200px,100到200之间都是百分之30
+        width: clamp(100px, 30%, 200px);
+        height: 200px;
+        background-color: @color-main;
+        padding: (100px/2);
+        margin: 100px/2;
+        user-select: none;
+    }
+}

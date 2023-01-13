@@ -6,7 +6,7 @@ import viteProdConfig from './vite.prod.config.js'
 // 策略模式
 const envResolve = {
     "build": () => {
-        console.log('生成环境')
+        console.log('生产环境')
         return { ...viteBaseConfig, ...viteProdConfig }
     },
 

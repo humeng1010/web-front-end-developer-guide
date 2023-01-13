@@ -1,0 +1,8 @@
+:root {
+    --global-color: skyblue;
+}
+
+div {
+    background-color: skyblue;
+    background-color: var(--global-color);
+}
