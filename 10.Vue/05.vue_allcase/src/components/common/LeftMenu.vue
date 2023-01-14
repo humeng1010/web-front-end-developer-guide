@@ -2,24 +2,97 @@
     <div class="menu">
         <p>
         <h1>
-            <router-link to="/vue3-case/01.setup">
+            <RouterLink to="/vue3-case/01.setup" active-class="active">
                 01.初识setup
-            </router-link>
+            </RouterLink>
+        </h1>
+        </p>
+
+        <p>
+        <h1>
+            <RouterLink to="/vue3-case/02.setup-ref" active-class="active">
+                02.setup-ref
+            </RouterLink>
         </h1>
         </p>
         <p>
         <h1>
-            <router-link to="/vue3-case/02.setup-ref">
-                02.setup-ref
-            </router-link>
+            <RouterLink to="/vue3-case/03.reactive" active-class="active">
+                03.reactive
+            </RouterLink>
         </h1>
         </p>
+        <p>
+        <h1>
+            <RouterLink to="/vue3-case/04.computed" active-class="active">
+                04.computed
+            </RouterLink>
+        </h1>
+        </p>
+        <p>
+        <h1>
+            <RouterLink to="/vue3-case/02.setup-ref" active-class="active">
+                05.watch
+            </RouterLink>
+        </h1>
+        </p>
+        <p>
+        <h1>
+            <RouterLink to="/vue3-case/02.setup-ref" active-class="active">
+                06.watchEffect
+            </RouterLink>
+        </h1>
+        </p>
+        <p>
+        <h1>
+            <RouterLink to="/vue3-case/02.setup-ref" active-class="active">
+                07.Life cycle
+            </RouterLink>
+        </h1>
+        </p>
+        <p>
+        <h1>
+            <RouterLink to="/vue3-case/02.setup-ref" active-class="active">
+                08.hooks
+            </RouterLink>
+        </h1>
+        </p>
+        <p>
+        <h1>
+            <RouterLink to="/vue3-case/02.setup-ref" active-class="active">
+                08.hooks
+            </RouterLink>
+        </h1>
+        </p>
+        <p>
+        <h1>
+            <RouterLink to="/vue3-case/02.setup-ref" active-class="active">
+                08.hooks
+            </RouterLink>
+        </h1>
+        </p>
+        <p>
+        <h1>
+            <RouterLink to="/vue3-case/02.setup-ref" active-class="active">
+                08.hooks
+            </RouterLink>
+        </h1>
+        </p>
+        <p>
+        <h1>
+            <RouterLink to="/vue3-case/02.setup-ref" active-class="active">
+                08.hooks
+            </RouterLink>
+        </h1>
+        </p>
+
 
 
     </div>
 </template>
 
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
 
 </script>
 
@@ -48,6 +121,13 @@
         }
 
 
+        .active {
+            transition: color .8s;
+            color: orange;
+        }
+
+
     }
+
 }
 </style>
