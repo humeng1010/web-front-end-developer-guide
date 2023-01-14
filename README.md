@@ -66,3 +66,4 @@
 - 2023年01月11日：8个小时-ts接口,函数,类,泛型的学习;webpack的第一天
 - 2023年01月12日：10个小时webpack背景图片打包,babel-loader,公共引入的代码抽离。vite的学习-什么是构建工具?vite的预加载和依赖预构建;配置文件的语法提示,开发环境的处理问题;vite的环境变量配置;vite是怎么让浏览器识别`.vue` 的文件的?
 - 2023年01月13日：6个小时vite构建工具的学习day02:css模块化的配置,less的配置,postcss后置处理器
+- 2023年01月14日：8个小时-vite处理静态资源,配置路径别名,静态资源生产环境的配置,vite插件:vite-aliases,vite-plugin-html,vite-plugin-mock;vite与ts的结合以及让ts可以使用import.meta.env环境变量;vite跨域的处理
