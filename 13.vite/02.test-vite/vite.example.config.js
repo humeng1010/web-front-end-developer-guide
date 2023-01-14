@@ -1,11 +1,21 @@
+// import最后都会被替换为commonJS规范的
 import { defineConfig } from 'vite'
-
-// 实例参考配置,仅用于以后复习参考使用,在该项目中并没有引入
+// 引入postcss预处理环境
+const postcssPresetEnv = require('postcss-preset-env');
+const path = require('path');
+// 基础配置
 export default defineConfig({
+    resolve: {
+        // 配置路径别名,方便深层次的文件引用外部的资源
+        alias: {
+            "@": path.resolve(__dirname, "./src"),
+            "@assets": path.resolve(__dirname, "./src/assets")
+        }
+    },
     optimizeDeps: {
         exclude: []
     },
-    envPrefix: "ENV_",//配置vite注入客户端环境变量校验env前缀
+    envPrefix: "ENV_",
     // 对css的行为进行配置
     css: {
         // 是对css模块化的默认行为进行覆盖
@@ -28,6 +38,13 @@ export default defineConfig({
                 }
             },
         },
-        // devSourcemap: true,
+        devSourcemap: true,//开启css的sourcemap
+        // vite的诞生会让postcss再火一次
+        postcss: {
+            plugins: [postcssPresetEnv({
+                importFrom: path.resolve(__dirname, "./variable.css"),
+            })]
+        }
     },
-})
+}
+)

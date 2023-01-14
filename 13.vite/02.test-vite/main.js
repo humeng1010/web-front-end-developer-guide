@@ -1,5 +1,6 @@
 // 加载图片
 import './src/imageLoader.js'
+import './src/svgLoader.js'
 // 引入json文件,如果我们使用的不是vite,在一些其他的构建工具里,json文件的导出会作为json字符串的形式存在
 // 而vite会直接把这个json自动装换为js对象提供我们使用
 // import jsonFile from './src/assets/json/index.json'
