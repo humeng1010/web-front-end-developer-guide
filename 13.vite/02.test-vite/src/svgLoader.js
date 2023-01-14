@@ -1,7 +1,7 @@
 import bili_url from '@assets/svgs/bili.svg?url'
 // 引入的时候后面可以根参数
 import bili_raw from '@assets/svgs/bili.svg?raw'
-console.log(bili_url, bili_raw)
+// console.log(bili_url, bili_raw)
 
 // 第一种使用svg的方式:以图片的形式加载,缺点不能修改图片颜色
 /* const img = document.createElement('img')

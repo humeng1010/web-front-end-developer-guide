@@ -46,5 +46,19 @@ export default defineConfig({
             })]
         }
     },
+    // 构建生产包的时候的一些策略
+    build: {
+        // 配置rollup的一些构建策略
+        rollupOptions: {
+            output: {// 控制输出
+                // 在rollup里面, hash代表的是你的文件名和文件内容进行组合计算得来的结果
+                assetFileNames: "[hash].[name].[ext]",
+            },
+
+        },
+        // assetsInlineLimit: 4096, // 4kb 如果静态资源小于4kb则会转换为base64的格式
+        // outDir: "build",//配置打包的文件名称
+        assetsDir: "static",// 配置打包后静态资源的目录
+    }
 }
 )

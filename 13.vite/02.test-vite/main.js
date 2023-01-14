@@ -6,7 +6,7 @@ import './src/svgLoader.js'
 // import jsonFile from './src/assets/json/index.json'
 import { name } from './src/assets/json/index.json'
 // tree shake : 打包工具会帮我们移除掉那些我们没有使用到的变量或者方法
-console.log("jsonFile", name)
+// console.log("jsonFile", name)
 /* import { count } from './counter.js'
 import './request.js'
 // 引入css
