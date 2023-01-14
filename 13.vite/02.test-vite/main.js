@@ -17,3 +17,8 @@ import './components/ComponentB.js'
 import './components/ComponentC.js'
 
 console.log('count', count) */
+fetch("api/users", { method: "post" }).then((value) => {
+    return value.json()
+}).then((data) => {
+    console.log(data)
+})

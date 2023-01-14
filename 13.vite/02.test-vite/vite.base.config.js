@@ -1,7 +1,13 @@
 // import最后都会被替换为commonJS规范的
 import { defineConfig } from 'vite'
+/* 插件 */
 // 引入别名自动配置
 import { ViteAliases } from 'vite-aliases'
+// 引入创建html插件
+import { createHtmlPlugin } from 'vite-plugin-html'
+// 引入vite-plugin-mock插件
+import { viteMockServe } from 'vite-plugin-mock'
+
 // 引入postcss预处理环境
 const postcssPresetEnv = require('postcss-preset-env');
 const path = require('path');
@@ -57,7 +63,20 @@ export default defineConfig({
     // 配置插件
     plugins: [
         // 自动生成路径别名的插件
-        ViteAliases()
+        ViteAliases(),
+        // 配置生成的html文件
+        createHtmlPlugin({
+            inject: {
+                data: {
+                    title: "首页"
+                },
+            },
+        }),
+        // 开箱即用,自动寻找根目录的mock文件夹
+        viteMockServe({
+            // 配置mock的文件夹位置
+            mockPath: "/src/mock"
+        })
     ],
 }
 )
