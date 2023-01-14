@@ -1,10 +1,17 @@
 // import最后都会被替换为commonJS规范的
-import { defineConfig, loadEnv } from 'vite'
+import { defineConfig } from 'vite'
 // 引入postcss预处理环境
 const postcssPresetEnv = require('postcss-preset-env');
 const path = require('path');
 // 基础配置
 export default defineConfig({
+    resolve: {
+        // 配置路径别名,方便深层次的文件引用外部的资源
+        alias: {
+            "@": path.resolve(__dirname, "./src"),
+            "@assets": path.resolve(__dirname, "./src/assets")
+        }
+    },
     optimizeDeps: {
         exclude: []
     },
